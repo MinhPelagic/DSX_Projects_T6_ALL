@@ -1,0 +1,238 @@
+/*CODE GENERATED PLEASE NOT MODIFY BY HAND!!!*/
+#include "L4X9_includes.h"
+#include "ContextDiveSettingsCfg.h"
+/*
+Context content progress to DiveSettings
+NOTE: These config are generated !!!
+*/
+/*
+----------------------------------
+DT: create 6/13/2021
+----------------------------------
+*/
+const menuItemContext_ts Context_DiveSett_DIVEMODE=
+{
+    ENABLE_DISPLAY,
+    DiveSett_DIVEMODE_Context_Left,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    DiveSett_DIVEMODE_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {0u,0u,0u,0u,0u,0u},
+};
+/*
+----------------------------------
+S266
+----------------------------------
+*/
+const menuItemContext_ts Context_DiveSett_BAILOUTPO2=
+{
+    ENABLE_DISPLAY,
+    DiveSett_BAILOUTPO2_Context_Left,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {1u,1u,1u,1u,1u,1u},
+};
+/*
+----------------------------------
+PO2 LIMITS and BAILOUT LIMITS IS the sam position
+----------------------------------
+*/
+const menuItemContext_ts Context_DiveSett_PO2LIMITS=
+{
+    ENABLE_DISPLAY,
+    DiveSett_PO2LIMITS_Context_Left,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {1u,1u,1u,1u,1u,1u},
+};
+/*
+----------------------------------
+S273
+----------------------------------
+*/
+const menuItemContext_ts Context_DiveSett_CONSERVATISM=
+{
+    ENABLE_DISPLAY,
+    DiveSett_CONSERVATISM_Context_Left,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    DiveSett_CONSERVATISM_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {2u,2u,2u,2u,2u,2u},
+};
+/*
+----------------------------------
+S274
+----------------------------------
+*/
+const menuItemContext_ts Context_DiveSett_SAFETYSTOP=
+{
+    ENABLE_DISPLAY,
+    DiveSett_SAFETYSTOP_Context_Left,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    DiveSett_SAFETYSTOP_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {3u,3u,3u,3u,3u,3u},
+};
+/*
+----------------------------------
+S275 6/13/2021
+----------------------------------
+*/
+const menuItemContext_ts Context_DiveSett_LASTSTOPDEPTH=
+{
+    ENABLE_DISPLAY,
+    DiveSett_LASTSTOPDEPTH_Context_Left,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    DiveSett_LASTSTOPDEPTH_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {4u,4u,4u,4u,4u,4u},
+};
+/*
+----------------------------------
+S271
+----------------------------------
+*/
+const menuItemContext_ts Context_DiveSett_BAILOUTPO2_MIN=
+{
+    ENABLE_DISPLAY,
+    DiveSett_BAILOUTPO2_MIN_Context_Left,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    DiveSett_BAILOUTPO2_MIN_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {0u,0u,0u,0u,0u,0u},
+};
+/*
+----------------------------------
+S271
+----------------------------------
+*/
+const menuItemContext_ts Context_DiveSett_BAILOUTPO2_MAX=
+{
+    ENABLE_DISPLAY,
+    DiveSett_BAILOUTPO2_MAX_Context_Left,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    DiveSett_BAILOUTPO2_MAX_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {1u,1u,1u,1u,1u,1u},
+};
+/*
+----------------------------------
+S271
+----------------------------------
+*/
+const menuItemContext_ts Context_DiveSett_BAILOUTPO2_DECO=
+{
+    ENABLE_DISPLAY,
+    DiveSett_BAILOUTPO2_DECO_Context_Left,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    DiveSett_BAILOUTPO2_DECO_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {2u,2u,2u,2u,2u,2u},
+};
+/*
+----------------------------------
+S107
+----------------------------------
+*/
+const menuItemContext_ts Context_DiveSett_CONSERVATISM_TEC_LOW=
+{
+    ENABLE_DISPLAY,
+    DiveSett_CONSERVATISM_TEC_LOW_Context_Left,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    DiveSett_CONSERVATISM_TEC_LOW_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {0u,0u,0u,0u,0u,0u},
+};
+/*
+----------------------------------
+S109
+----------------------------------
+*/
+const menuItemContext_ts Context_DiveSett_CONSERVATISM_TEC_HIGH=
+{
+    ENABLE_DISPLAY,
+    DiveSett_CONSERVATISM_TEC_HIGH_Context_Left,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    DiveSett_CONSERVATISM_TEC_HIGH_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {1u,1u,1u,1u,1u,1u},
+};

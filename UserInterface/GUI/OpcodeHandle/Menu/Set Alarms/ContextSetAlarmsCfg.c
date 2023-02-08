@@ -1,0 +1,448 @@
+/*CODE GENERATED PLEASE NOT MODIFY BY HAND!!!*/
+#include "L4X9_includes.h"
+#include "ContextSetAlarmsCfg.h"
+/*
+Context content progress to SetAlarms
+NOTE: These config are generated !!!
+*/
+/*
+----------------------------------
+S123
+----------------------------------
+*/
+const menuItemContext_ts Context_SetAlarms_AUDIBLEnVIBRATION=
+{
+    ENABLE_DISPLAY,
+    SetAlarms_AUDIBLEnVIBRATION_Context_Left,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {0u,0u,0u,0u,0u,0u},
+};
+/*
+----------------------------------
+
+----------------------------------
+*/
+const menuItemContext_ts Context_SetAlarms_DEPTH=
+{
+    ENABLE_DISPLAY,
+    SetAlarms_DEPTH_Context_Left,
+    ENABLE_DISPLAY,
+    SetAlarms_DEPTH_Context_Center,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    SetAlarms_DEPTH_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {1u,1u,1u,1u,1u,1u},
+};
+/*
+----------------------------------
+
+----------------------------------
+*/
+const menuItemContext_ts Context_SetAlarms_DIVETIME_TTS=
+{
+    ENABLE_DISPLAY,
+    SetAlarms_DIVETIME_TTS_Context_Left,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {2u,2u,2u,0xFF,0xFF,2u},
+};
+/*
+----------------------------------
+
+----------------------------------
+*/
+const menuItemContext_ts Context_SetAlarms_DTR=
+{
+    ENABLE_DISPLAY,
+    SetAlarms_DTR_Context_Left,
+    ENABLE_DISPLAY,
+    SetAlarms_DTR_Context_Center,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    SetAlarms_DTR_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {3u,3u,3u,0xFF,0xFF,3u},
+};
+/*
+----------------------------------
+
+----------------------------------
+*/
+const menuItemContext_ts Context_SetAlarms_TANKPRESS=
+{
+    ENABLE_DISPLAY,
+    SetAlarms_TANKPRESS_Context_Left,
+    ENABLE_DISPLAY,
+    SetAlarms_TANKPRESS_Context_Center,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    SetAlarms_TANKPRESS_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {4u,0xFF,0xFF,0xFF,0xFF,4u},
+};
+/*
+----------------------------------
+
+----------------------------------
+*/
+const menuItemContext_ts Context_SetAlarms_CCPRESS=
+{
+    ENABLE_DISPLAY,
+    SetAlarms_CCPRESS_Context_Left,
+    ENABLE_DISPLAY,
+    SetAlarms_CCPRESS_Context_Center,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    SetAlarms_CCPRESS_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {5u,0xFF,0xFF,0xFF,0xFF,5u},
+};
+/*
+----------------------------------
+
+----------------------------------
+*/
+const menuItemContext_ts Context_SetAlarms_GFN2=
+{
+    ENABLE_DISPLAY,
+    SetAlarms_GFN2_Context_Left,
+    ENABLE_DISPLAY,
+    SetAlarms_GFN2_Context_Center,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    SetAlarms_GFN2_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {6u,5u,5u,0xFF,0xFF,6u},
+};
+/*
+----------------------------------
+
+----------------------------------
+*/
+const menuItemContext_ts Context_SetAlarms_TURNENDPRESS=
+{
+    ENABLE_DISPLAY,
+    SetAlarms_TURNENDPRESS_Context_Left,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {0xFF,4u,4u,3u,3u,0xFF},
+};
+/*
+----------------------------------
+
+----------------------------------
+*/
+const menuItemContext_ts Context_SetAlarms_ENDWOBICD=
+{
+    ENABLE_DISPLAY,
+    SetAlarms_ENDWOBICD_Context_Left,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {0xFF,6u,6u,0xFF,0xFF,0xFF},
+};
+/*
+----------------------------------
+
+----------------------------------
+*/
+const menuItemContext_ts Context_SetAlarms_DIVETIME=
+{
+    ENABLE_DISPLAY,
+    SetAlarms_DIVETIME_Context_Left,
+    ENABLE_DISPLAY,
+    SetAlarms_DIVETIME_Context_Center,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    SetAlarms_DIVETIME_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {0xFF,0xFF,0xFF,2u,2u,0xFF},
+};
+/*
+----------------------------------
+S124
+----------------------------------
+*/
+const menuItemContext_ts Context_SetAlarms_AudVib_AUDIBLE=
+{
+    ENABLE_DISPLAY,
+    SetAlarms_AudVib_AUDIBLE_Context_Left,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    SetAlarms_AudVib_AUDIBLE_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {0u,0u,0u,0u,0u,0u},
+};
+/*
+----------------------------------
+S126
+----------------------------------
+*/
+const menuItemContext_ts Context_SetAlarms_AudVib_VIBRATION=
+{
+    ENABLE_DISPLAY,
+    SetAlarms_AudVib_VIBRATION_Context_Left,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    SetAlarms_AudVib_VIBRATION_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {1u,1u,1u,1u,1u,1u},
+};
+/*
+----------------------------------
+S132
+----------------------------------
+*/
+const menuItemContext_ts Context_SetAlarms_DiveTimeTTS_DIVETIME=
+{
+    ENABLE_DISPLAY,
+    SetAlarms_DiveTimeTTS_DIVETIME_Context_Left,
+    ENABLE_DISPLAY,
+    SetAlarms_DiveTimeTTS_DIVETIME_Context_Center,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    SetAlarms_DiveTimeTTS_DIVETIME_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {0u,0u,0u,0u,0u,0u},
+};
+/*
+----------------------------------
+S136
+----------------------------------
+*/
+const menuItemContext_ts Context_SetAlarms_DiveTimeTTS_TTS=
+{
+    ENABLE_DISPLAY,
+    SetAlarms_DiveTimeTTS_TTS_Context_Left,
+    ENABLE_DISPLAY,
+    SetAlarms_DiveTimeTTS_TTS_Context_Center,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    SetAlarms_DiveTimeTTS_TTS_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {1u,1u,1u,0xFF,0xFF,1u},
+};
+/*
+----------------------------------
+S289
+----------------------------------
+*/
+const menuItemContext_ts Context_SetAlarms_EndWobIcd_END=
+{
+    ENABLE_DISPLAY,
+    SetAlarms_EndWobIcd_END_Context_Left,
+    ENABLE_DISPLAY,
+    SetAlarms_EndWobIcd_END_Context_Center,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    SetAlarms_EndWobIcd_END_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {0u,0u,0u,0u,0u,0u},
+};
+/*
+----------------------------------
+S294
+----------------------------------
+*/
+const menuItemContext_ts Context_SetAlarms_EndWobIcd_WOB=
+{
+    ENABLE_DISPLAY,
+    SetAlarms_EndWobIcd_WOB_Context_Left,
+    ENABLE_DISPLAY,
+    SetAlarms_EndWobIcd_WOB_Context_Center,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    SetAlarms_EndWobIcd_WOB_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {1u,1u,1u,1u,1u,1u},
+};
+/*
+----------------------------------
+S296
+----------------------------------
+*/
+const menuItemContext_ts Context_SetAlarms_EndWobIcd_ICD=
+{
+    ENABLE_DISPLAY,
+    SetAlarms_EndWobIcd_ICD_Context_Left,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    SetAlarms_EndWobIcd_ICD_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {2u,2u,2u,2u,2u,2u},
+};
+/*
+----------------------------------
+S297
+----------------------------------
+*/
+const menuItemContext_ts Context_SetAlarms_EndWobIcd_O2NARCOTIC=
+{
+    ENABLE_DISPLAY,
+    SetAlarms_EndWobIcd_O2NARCOTIC_Context_Left,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    SetAlarms_EndWobIcd_O2NARCOTIC_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {3u,3u,3u,3u,3u,3u},
+};
+/*
+----------------------------------
+S283
+----------------------------------
+*/
+const menuItemContext_ts Context_SetAlarms_TurnEndPress_TURN=
+{
+    ENABLE_DISPLAY,
+    SetAlarms_TurnEndPress_TURN_Context_Left,
+    ENABLE_DISPLAY,
+    SetAlarms_TurnEndPress_TURN_Context_Center,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    SetAlarms_TurnEndPress_TURN_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {0u,0u,0u,0u,0u,0u},
+};
+/*
+----------------------------------
+S286
+----------------------------------
+*/
+const menuItemContext_ts Context_SetAlarms_TurnEndPress_END=
+{
+    ENABLE_DISPLAY,
+    SetAlarms_TurnEndPress_END_Context_Left,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    SetAlarms_TurnEndPress_END_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {1u,1u,1u,1u,1u,1u},
+};
+/*
+----------------------------------
+S354
+----------------------------------
+*/
+const menuItemContext_ts Context_SetAlarms_TurnEndPress_SWITCH=
+{
+    ENABLE_DISPLAY,
+    SetAlarms_TurnEndPress_SWITCH_Context_Left,
+    ENABLE_DISPLAY,
+    SetAlarms_TurnEndPress_SWITCH_Context_Center,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    DISABLE_DISPLAY,
+    ContextEmpty,
+    ENABLE_DISPLAY,
+    SetAlarms_TurnEndPress_SWITCH_Context_Right,
+    DISABLE_COLOR_HANDLE,
+    &ReturnFalse,
+    {0xFF,0xFF,2u,2u,2u,0xFF},
+};

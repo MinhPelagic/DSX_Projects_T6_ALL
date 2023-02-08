@@ -1,0 +1,194 @@
+/*******************************************************************************
+ * @file        : Tick_Handler.h
+ * @brief       : This file contains all Tick handler functions.
+ *
+ * @version     0.0.1
+ *******************************************************************************
+ * # License
+ * <c>Copyright 2018-2020.
+ * Author: Attilio Piacente - Deep InnTech S.r.l.s.
+ *******************************************************************************
+ *
+ *
+ ******************************************************************************/
+
+
+
+/*******************************************************************************
+ * @brief   Defines
+ ******************************************************************************/
+#ifndef __TICK_HANDLER_
+#define __TICK_HANDLER_
+/*********************************** TICK 0 ***********************************/
+/* System Supply Monitor Update Time in seconds */
+#define SSM_SLEEPMODE_UPDATE_S          86400   // check System Supply once per day at Sleep Mode
+#define SSM_UPDATE_S                    60      // check System Supply once per minute for other modes
+
+#define DEV_BOARD_2020_IN_USE           0       // 1: New DSX Product Board;            0: use Old Development Prototype Board (2019~2020)
+
+#define BAT_LOW_PERCENTAGE              15
+#define BAT_NO_DIVE_PERCENTAGE          2       // the battery voltage percentage that allows diving
+#define BAT_NO_OPERATE_PERCENTAGE       0       // the battery voltage percentage that allows operation
+
+/* NVD RAM to External EERPOM Update period */
+#define NVD_RAM_TO_EEPROM_PERIOD_S      120
+#define NVD_EEPROM_WRITE_TIMEOUT        3
+#define NVD_EEPROM_READ_TIMEOUT         3
+#define NVD_FLASH_WRITE_TIMEOUT         3
+#define NVD_FLASH_READ_TIMEOUT          3
+
+/* PSM Mode Enter Timout */
+#define PSM_TIMEOUT_S                   600     // 600  (10 minutes)
+
+#if defined (BUILD_BTL)
+  #define PSM_ENABLED                   1       // 1: ON, 0: OFF
+  #define USE_REAL_BATTERY              1       // 1: use fuel gauge percentage;        0: use constant number 
+#else
+  #define PSM_ENABLED                   0       // 1: ON, 0: OFF
+  #define USE_REAL_BATTERY              0       // 1: use fuel gauge percentage;        0: use constant number 
+#endif
+
+#define BUTTON_REBOOT_TIMEOUT_S         100     // in seconds
+
+#define SURF_MENU_TIMEOUT_S             120     // Any Surf Mode Setting Menu idle for this time (120 Seconds) returns to SURFACE MAIN Page
+#define DIVE_MENU_TIMEOUT_S             10      // Any Dive Mode Setting Menu idle for this time (10 Seconds) returns to DIVE MAIN Page
+
+#define COMPASS_MAIN_TIMEOUT_S          120     // 120 seconds for running Compass Main Page
+#define DIVE_COMPASS_MENU_TIMEOUT_S     (DIVE_MENU_TIMEOUT_S-1) // to return Dive Compass instead of returning to Dive Main page
+
+#define DATA_RET_ENABLED                1       // 1: Data Retention Enabled; 0: Data Retention Disabled
+#define GPS_FW_ATTACHED                 0       // 1: Use DSX firmware as GPS FW carrier (attached);  0: No GPS FW attached to DSX firmware;
+extern float Demo_Pressure_mbar;
+
+
+
+#define TP0_LOW         TPn_Low(0)
+#define TP0_HIGH        TPn_High(0)
+
+#define TP1_LOW         TPn_Low(1)
+#define TP1_HIGH        TPn_High(1)
+
+#define TP2_LOW         TPn_Low(2)
+#define TP2_HIGH        TPn_High(2)
+
+#define TP3_LOW         TPn_Low(3)
+#define TP3_HIGH        TPn_High(3)
+
+
+/*******************************************************************************
+ * @brief   Data Structures
+ ******************************************************************************/
+
+/* Tick handler structure */
+typedef struct
+{
+  uint8_t scheduled_tick;       // number of tick to be processed range 0-7;
+  bool tick_processed[8];       // tick proccessed flag. If true corresponding tick has been proccessed.
+  bool wut_125ms_occurred;      // flasg to notify a 125ms WUT interrupt has occurred
+  bool allow_tick_scheduling;   // flasg to inhibit tick scheduling
+} L4X9_TickHanlder_t;
+
+
+/*******************************************************************************
+ * @brief   GLOBAL Variables
+ ******************************************************************************/
+
+/* Tick Handler global struct */
+extern volatile L4X9_TickHanlder_t TickHandler;
+
+// Debug Variable
+extern uint32_t TickCounter[20];
+
+/*******************************************************************************
+ * @brief   TICK HANLDER Routines
+ ******************************************************************************/
+
+/* Initialization before Tick Handler */
+void L4X9_App_Init(void);
+
+/* Tick 0 Handler */
+void L4X9_TickHandler_0(void);
+
+/* Tick 1 Handler */
+void L4X9_TickHandler_1(void);
+
+/* Tick 2 Handler */
+void L4X9_TickHandler_2(void);
+
+/* Tick 3 Handler */
+void L4X9_TickHandler_3(void);
+
+/* Tick 4 Handler */
+void L4X9_TickHandler_4(void);
+
+/* Tick 5 Handler */
+void L4X9_TickHandler_5(void);
+
+/* Tick 6 Handler */
+void L4X9_TickHandler_6(void);
+
+/* Tick 7 Handler */
+void L4X9_TickHandler_7(void);
+
+/* Tick ALL Handler */
+void L4X9_TickHandler_ALL(void);
+
+/* Initialize SystemStatus Global Structure */
+void SystemStatus_Init (void);
+
+/* Button System Reboot Manager */
+void ButtonSystemRebootManager(void);
+
+/* To check and to set or release Violation stauts */
+bool CheckViolationManager(void);
+
+/* To remove or release Violation stauts */
+void RemoveViolationStatus(void);
+
+/* For dive data backup prior to emergency Automatic Shutdown */
+void EmergencyEndOfDiveBackupAndShutdown(void);
+
+/* For surface mode emergency Automatic Shutdown */
+void EmergencySurfaceShutdown(void);
+
+/* Check condition if system needs to return to Dive Mode Compass fast */
+bool CheckIfFastReturnToDiveCompass(void);
+
+/*******************************************************************************
+ * @brief   Extern Helper Routines
+ ******************************************************************************/
+
+extern uint8_t ReadLog(uint16_t);
+
+extern void ClearAllDiverLogs(void);
+
+extern uint8_t Buf_4K[SECTOR_SIZE/LOG_SIZE][LOG_SIZE];
+extern uint16_t ProfileChartData[];
+extern uint16_t ProfileChartPointY[];
+extern uint8_t ProfileIdx;      // from 0 to PROFILE_CHART_SIZE - 1
+extern void ReadNewDiveProfile_ExFLASH(void);
+extern void ReadWelcomeData_ExFLASH(void);
+extern void ClearProfileChartData(void);        // to clear Profile Chart Data before every new dive
+
+/*******************************************************************************
+ * @brief   App Enumerators
+ ******************************************************************************/
+extern uint8_t GUI_BRIGHTNESS_LV;       // GUI Settings for BRIGHTNESS_LV
+extern uint8_t GUI_DIM_BRIGHT_LV;       // GUI Settings for DIM_BRIGHT_LV
+extern uint8_t TLBGVal_Log;     // a buffer to keep TLBGVal value at the beginning of After-Dive, and then save it to Log at the end of After-Dive
+extern uint8_t MaxOTUpercent;   // to record Max O2% throughout a dive
+extern uint8_t MaxTLBGVal;      // to record Max TLBG throughout a dive
+extern bool NewDiveWhenLowBatt; // the flag to display Low Battery Alarm non-stop, if New Dive Starts from a Red Battery
+extern void PhamtonDiveDataRestore(void);      // Data Restoration after phantom dive detected, to restore pre-dive condition 
+extern uint32_t Lux_u32;
+extern float Lux_f;
+extern uint8_t AutoBRIGHTNESS;
+extern float SensorReadbackLux;
+extern uint8_t GUI_DiverTimerState;
+extern bool GUI_DiverTimerOn;
+extern bool GUI_DiverTimerRun;
+extern bool GUI_DiverTimerDisp;
+
+void SaveLogAndProfile(uint8_t stat, uint16_t n);
+
+#endif

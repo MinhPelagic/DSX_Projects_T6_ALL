@@ -1,0 +1,767 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName />
+    <SccLocalPath />
+    <ProjectGuid>{ED1B800C-633A-4415-87F5-8BDDFD55D32E}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>
+    </ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\Exe</OutDir>
+    <IntDir>.\Output\Debug\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>Simulation</TargetName>
+    <IncludePath>..\..\..\Libraries\Middleware\STemWin\inc_V544;Application;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\Output\Release\</OutDir>
+    <IntDir>.\Output\Release\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\git\CubeF4\Firmware\Projects\WIN32\STemWin_Simulation\Config;C:\git\CubeF4\Firmware\Middlewares\ST\STemWin\inc;$(IncludePath</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <MinimalRebuild>true</MinimalRebuild>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_APP_DSX_;_DEBUG;TARGET_1375_C8_137X;WIN32;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\Output\Debug\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\Output\Debug\Simulation.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\Output\Debug\</ObjectFileName>
+      <ProgramDataBaseFileName>.\Output\Debug\</ProgramDataBaseFileName>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
+      <AdditionalOptions>/FS %(AdditionalOptions)</AdditionalOptions>
+      <MultiProcessorCompilation>
+      </MultiProcessorCompilation>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Output\Debug\Simulation.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <ShowProgress>true</ShowProgress>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Output\Debug\Simulation.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <OutputFile>Exe/Simulation.exe</OutputFile>
+      <AdditionalDependencies>winmm.lib;libcmt.lib;ws2_32.lib;legacy_stdio_definitions.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>LIBC.lib;LIBCMTD.lib</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <LinkStatus>true</LinkStatus>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MinSpace</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;TARGET_1375_C8_137X;WIN32;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\Output\Release\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\Output\Release\Simulation.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\Output\Release\</ObjectFileName>
+      <ProgramDataBaseFileName>.\Output\Release\</ProgramDataBaseFileName>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Output\Release\Simulation.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0407</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Output\Release\Simulation.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <OutputFile>Exe/GUISimulation.exe</OutputFile>
+      <AdditionalDependencies>winmm.lib;libcmt.lib;ws2_32.lib;legacy_stdio_definitions.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>LIBC.lib;LIBCMTD.lib</IgnoreSpecificDefaultLibraries>
+      <LinkStatus>true</LinkStatus>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\autofit.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\bdf.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\cff.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftbase.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftbbox.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftbdf.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftbitmap.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftbzip2.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftcache.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftcid.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftdebug.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftfstype.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftgasp.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftglyph.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftgxval.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftgzip.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftinit.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftlcdfil.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftlzw.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftmm.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftotval.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftpatent.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftpfr.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftstroke.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftsynth.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftsystem.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\fttype1.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftwinfnt.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\ftxf86.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\GUI_TTF.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\gxvalid.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\otvalid.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\pcf.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\pfr.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\psaux.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\pshinter.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\psnames.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\raster.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\sfnt.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\smooth.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\truetype.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\type1.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\type1cid.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\type42.c" />
+    <ClCompile Include="..\..\..\Libraries\Middleware\STemWin\V544\truetype\winfnt.c" />
+    <ClCompile Include="..\..\ButtonHandle\DSX_ButtonHandle.c" />
+    <ClCompile Include="..\Bitmaps\DSX manufacturer screen.c" />
+    <ClCompile Include="..\Bitmaps\DSX_WelcomeBMP.c" />
+    <ClCompile Include="..\Bitmaps\Register.c" />
+    <ClCompile Include="..\Bitmaps\USB.c" />
+    <ClCompile Include="..\DsxConditionCheck.c" />
+    <ClCompile Include="..\DsxOcConfig.c" />
+    <ClCompile Include="..\DSX_Coordinate.c" />
+    <ClCompile Include="..\DSX_Data_Decode.c" />
+    <ClCompile Include="..\DSX_Data_Process.c" />
+    <ClCompile Include="..\DSX_FontStruct.c" />
+    <ClCompile Include="..\Icon_DSX.c" />
+    <ClCompile Include="..\OpcodeHandle\BatteryCharging\BatteryChargingSleepMode.c" />
+    <ClCompile Include="..\OpcodeHandle\Compass Mode\CompassHandle_ReferenceReversDisplay.c" />
+    <ClCompile Include="..\OpcodeHandle\Compass Mode\CompassHandle_TankPressureDisplay.c" />
+    <ClCompile Include="..\OpcodeHandle\Compass Mode\Compass_Display_MainValue_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Compass Mode\Compass_Display_NavigateArrows_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Compass Mode\Compass_Display_ReferencePoint_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Compass Mode\Compass_Display_ScaleVerticalBar_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Compass Mode\Compass_Main_Dive.c" />
+    <ClCompile Include="..\OpcodeHandle\Compass Mode\Compass_Main_Surface.c" />
+    <ClCompile Include="..\OpcodeHandle\Compass Mode\Compass_Main_Surface_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Compass Mode\Compass_Menu_CALIBRATE.c" />
+    <ClCompile Include="..\OpcodeHandle\Compass Mode\Compass_Menu_MainPage.c" />
+    <ClCompile Include="..\OpcodeHandle\Compass Mode\Compass_Menu_MainPage_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Compass Mode\Compass_Menu_SETDECLIN.c" />
+    <ClCompile Include="..\OpcodeHandle\Compass Mode\Compass_Menu_SETDECLIN_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Compass Mode\Compass_RefPoint.c" />
+    <ClCompile Include="..\OpcodeHandle\Compass Mode\ContextCompassMenuCfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DepthAndDiveTimeHandle_AlarmArrowUpDown.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DepthAndDiveTimeHandle_AlarmInBottom.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DepthAndDiveTimeHandle_PressureDisplay.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DepthAndDiveTimeMode_PageMain.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_AscentTooFast.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_AutoSwitchingSP_High.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_AutoSwitchingSP_Low.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_BatteryShutDown.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_CC6Pressure.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_ConditionalViolation.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_DecoAlarm.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_DecoEntry.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_DecoPO2.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_DecoWarning.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_DepthAlarm.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_DiveTimeAlarm.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_DTR_Alarm.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_EndP.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_EquivalentNarcoticDepth.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_FullViolation.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_GasSwitch.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_GasTimeRemaining.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_GF_90.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_GradientFactor.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_HighPO2.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_LostTMT.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_LowBattery.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_LowPO2.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_MainPage_ArrowUpDown.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_MainPage_BottomAlarms.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_MainPage_SwitchTankArrow.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_MainPage_Violation.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_N2Bar80.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_O2Sat.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_O2SatWarning.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_OCmaxPO2.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_OCminPO2.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_SwitchTank.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_TankPressure.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_TimeToSurface.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_TMTLowBattery.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_TurnP.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveAlarmHandle_WorkOfBreathing.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveModeHandle_BatteryDisplayCheck.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveModeHandle_CC_DisplayContentInMiddle.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveModeHandle_ClearPortionScreen.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveModeHandle_Deco_NoDeco_DeepStop_SafetyStop.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveModeHandle_DisplayExtralargeDepthOrDiveTime.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveModeHandle_DisplayGTR.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveModeHandle_DisplayImperialOrMetric.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveModeHandle_GSM_CheckDisplayWhenViolation.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveModeHandle_In10MinsAfterDive.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveModeHandle_MainFO2Display.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveModeHandle_SM_DisplayContentInMiddle.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveMode_CC_PageAlt3.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveMode_CC_PageAlt5.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveMode_CC_PageMain.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveMode_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveMode_Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveMode_Gauge_MainPage.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveMode_Gauge_PageAlt1.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveMode_GSM_PageMain.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveMode_OC_PageAlt1.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveMode_OC_PageAlt2.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveMode_OC_PageAlt3.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveMode_OC_PageAlt4.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveMode_OC_PageAlt5.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveMode_OC_PageMain.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveMode_SM_PageAlt1.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveMode_SM_PageAlt2.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveMode_SM_PageAlt3.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveMode_SM_PageAlt4.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveMode_SM_PageAlt5.c" />
+    <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveMode_SM_PageMain.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\ContextDeviceSettingsCfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Menu_DeviceSettings_Bluetooth.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Menu_DeviceSettings_Bluetooth_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Menu_DeviceSettings_MainPage.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Menu_DeviceSettings_MainPage_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Menu_DeviceSettings_ResetSettings.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Menu_DeviceSettings_SampleRate.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Menu_DeviceSettings_SampleRate_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Menu_DeviceSettings_Units.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Menu_DeviceSettings_Units_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Menu_DeviceSettings_WaterType.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Menu_DeviceSettings_WaterType_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Menu_DeviceSettings_WelcomeScreen.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Menu_DeviceSettings_WelcomeScreen_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Mode_DeviceSettings_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Transmitter Settings\Menu_DeviceSettings_Transmitter_MainPage.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Transmitter Settings\Menu_DeviceSettings_Transmitter_MainPage_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Transmitter Settings\Menu_DeviceSettings_Transmitter_TMT_1.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Transmitter Settings\Menu_DeviceSettings_Transmitter_TMT_1_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Transmitter Settings\Menu_DeviceSettings_Transmitter_TMT_2.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Transmitter Settings\Menu_DeviceSettings_Transmitter_TMT_2_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Transmitter Settings\Menu_DeviceSettings_Transmitter_TMT_3.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Transmitter Settings\Menu_DeviceSettings_Transmitter_TMT_3_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Transmitter Settings\Menu_DeviceSettings_Transmitter_TMT_4.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Transmitter Settings\Menu_DeviceSettings_Transmitter_TMT_4_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Transmitter Settings\Menu_DeviceSettings_Transmitter_TMT_5.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Transmitter Settings\Menu_DeviceSettings_Transmitter_TMT_5_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Transmitter Settings\Menu_DeviceSettings_Transmitter_TMT_6.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Transmitter Settings\Menu_DeviceSettings_Transmitter_TMT_6_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\ContextDisplaySettingsCfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_Autodim.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_Autodim_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_Brightness.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_Brightness_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_Brightness_CheckAutodim.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_FlipScreen.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_FlipScreen_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_GTRLeftRight.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_GTRLeftRight_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_Language.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_Language_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_MainDisplay_3rdRowLeft.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_MainDisplay_3rdRowLeft_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_MainDisplay_3rdRowRight.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_MainDisplay_3rdRowRight_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_MainDisplay_Extralarge.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_MainDisplay_Extralarge_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_MainDisplay_GFBGorN2Bar.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_MainDisplay_GFBGorN2Bar_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_MainDisplay_MainPage.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_MainPage.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_MainPage_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_TitlesColor.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Menu_DisplaySettings_TitlesColor_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Display Settings\Mode_DisplaySettings_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Main Menu\ContextDiveMainMenuCfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Main Menu\Dive Profile Graph\DiveMainMenuHandle_DiveProfileGraph.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Main Menu\DiveMainMenuHandle_MainPage.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Main Menu\Menu_DiveMainMenu_Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Main Menu\Mode_DiveMainMenu_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Main Menu\ResetAVGDepth\ButtonHandle_DiveMenu_ResetAvgDepth.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Main Menu\ResetAVGDepth\DiveMainMenuHandle_ResetAvgDepth.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Main Menu\SwitchTMTMenu\ButtonHandle_DiveMainMenu_TMTSwitch.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Main Menu\SwitchTMTMenu\DiveMainMenu_TMTSwitch_MainPage.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Main Menu\SwitchTMTMenu\DiveMainMenu_TMT_Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Menu\ContextDiveMenuCfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Menu\DecoStops\ButtonHandle_DiveMenu_DecoStop.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Menu\DecoStops\MenuHandle_DiveMenu_DecoStop.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Menu\DecoStops\Menu_DiveMenu_DecoStops.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Menu\DecoStops\Menu_DiveMenu_DecoStops_Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Menu\DiveMenuHandle_MainPage.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Menu\Menu_DiveMenu_ConditionCheck.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Menu\Menu_DiveMenu_Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Menu\Mode_DiveMenu_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Menu\Set GF High\ButtonHandle_DiveMenu_SetGFHigh.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Menu\Set GF High\MenuHandle_DiveMenu_SetGFHigh.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Menu\Set GF High\Menu_DiveMenu_SetGFHigh.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Menu\Set GF High\Menu_DiveMenu_SetGFHigh_Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Planner\ContextDivePlannerCfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Planner\MenuHandle_DivePlanner_TimeLimitsTittleCheck.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Planner\Menu_DivePlanner_Context_DepthLimits.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Planner\Menu_DivePlanner_Context_Main.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Planner\Menu_DivePlanner_Page_DepthLimits.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Planner\Menu_DivePlanner_Page_Main.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Planner\Menu_DivePlanner_Page_TimeLimits.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Planner\Menu_DiveSim_Depth.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Planner\Menu_DiveSim_Depth_Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Planner\Menu_DiveSim_MainPage.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Planner\Menu_DiveSim_MainPage_Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Planner\Menu_DiveSim_NewOrContinuous.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Planner\Menu_DiveSim_NewOrContinuous_Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Planner\Menu_DiveSim_Sac.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Planner\Menu_DiveSim_Sac_Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Planner\Menu_DiveSim_SimulateDive Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Planner\Menu_DiveSim_SimulateDive.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Planner\Menu_DiveSim_SimulateDive_ButtonHandle.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Planner\Menu_DiveSim_Sp.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Planner\Menu_DiveSim_Sp_Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Planner\Menu_DiveSim_Time.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Planner\Menu_DiveSim_Time_Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Planner\Mode_DivePlanner_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\ContextDiveSettingsCfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Menu_DiveSettings_BailOutPO2Limit_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Menu_DiveSettings_BailOutPO2Limit_DECO.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Menu_DiveSettings_BailOutPO2Limit_DECO_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Menu_DiveSettings_BailOutPO2Limit_MainPage.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Menu_DiveSettings_BailOutPO2Limit_MAX.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Menu_DiveSettings_BailOutPO2Limit_MAX_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Menu_DiveSettings_BailOutPO2Limit_MIN.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Menu_DiveSettings_BailOutPO2Limit_MIN_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Menu_DiveSettings_Conservatism_SPORT.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Menu_DiveSettings_Conservatism_SPORT_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Menu_DiveSettings_Conservatism_TEC_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Menu_DiveSettings_Conservatism_TEC_HIGH.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Menu_DiveSettings_Conservatism_TEC_HIGH_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Menu_DiveSettings_Conservatism_TEC_LOW.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Menu_DiveSettings_Conservatism_TEC_LOW_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Menu_DiveSettings_Conservatism_TEC_MainPage.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Menu_DiveSettings_LastStopDepth.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Menu_DiveSettings_MainPage.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Menu_DiveSettings_MainPage_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Menu_DiveSettings_SafetyStop.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Menu_DiveSettings_SafetyStop_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Menu_DiveSettings_SetDiveMode.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Menu_DiveSettings_SetDiveMode_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Dive Settings\Mode_DiveSettings_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Gas Switch\ContextGasSwitchCfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Gas Switch\Menu_GasSwitch.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Gas Switch\Menu_GasSwitch_ConditionCheck.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Gas Switch\Menu_GasSwitch_Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\GPS Menu\ButtonHandle_GPSMenu_DeleteLocation.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\GPS Menu\ButtonHandle_GPSMenu_Wayfinder.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\GPS Menu\ContextGPSMenuCfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\GPS Menu\Menu_GPSMenu_Context_Main.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\GPS Menu\Menu_GPSMenu_Context_WayFinder.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\GPS Menu\Menu_GPSMenu_Page_DeleteLocation.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\GPS Menu\Menu_GPSMenu_Page_DeleteLocationToSaveNew.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\GPS Menu\Menu_GPSMenu_Page_GoToLocation.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\GPS Menu\Menu_GPSMenu_Page_InitializingGPS.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\GPS Menu\Menu_GPSMenu_Page_LocationDeleted.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\GPS Menu\Menu_GPSMenu_Page_LocationSaved.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\GPS Menu\Menu_GPSMenu_Page_Main.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\GPS Menu\Menu_GPSMenu_Page_ReachedTarget.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\GPS Menu\Menu_GPSMenu_Page_SaveLocation.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\GPS Menu\Menu_GPSMenu_Page_SignalNotFound.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\GPS Menu\Menu_GPSMenu_Page_WaitForGpsSignal.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\GPS Menu\Menu_WayfinderMenu_Context_Main.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\GPS Menu\Menu_WayfinderMenu_Page_Main.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\GPS Menu\Menu_WayfinderMenu_Page_MainList.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\GPS Menu\Mode_GPSMenu_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\GPS Menu\Mode_WayfinderMenu_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\ContextMainMenuCfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Main_Menu_INFO\Menu_MainMenu_Info.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Main_Menu_INFO\Menu_MainMenu_Info_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Main_Menu_INFO\Menu_MainMenu_Info_Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Main_Menu_INFO\Menu_MainMenu_Info_DSXINFO.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Main_Menu_INFO\Menu_MainMenu_Info_HISTORY.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Main_Menu_INFO\Menu_MainMenu_Info_MYINFO.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Main_Menu_LOG\ButtonHandle_MainMenu_LOG.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Main_Menu_LOG\Menu_MainMenu_LOG_1.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Main_Menu_LOG\Menu_MainMenu_LOG_1_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Main_Menu_LOG\Menu_MainMenu_LOG_2.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Main_Menu_LOG\Menu_MainMenu_LOG_3.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Main_Menu_LOG\Menu_MainMenu_LOG_4.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Main_Menu_LOG\Menu_MainMenu_LOG_5.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Main_Menu_LOG\Menu_MainMenu_LOG_Config.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Main_Menu_Slates\Menu_MainMenu_Slates.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Main_Menu_Slates\Menu_MainMenu_Slates_ButtonHandle.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Main_Menu_Slates\Menu_MainMenu_Slates_Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Main_Menu_TMT_SWITCH\ButtonHandle_MainMenu_TMTSwitch.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Main_Menu_TMT_SWITCH\Menu_MainMenu_TMTSwitch_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Main_Menu_TMT_SWITCH\Menu_MainMenu_TMTSwitch_Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Main_Menu_TMT_SWITCH\Menu_MainMenu_TMTSwitch_MainPage.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Menu_MainMenu.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Menu_MainMenu_Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Main Menu\Mode_MainMenu_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\ContextSetAlarmsCfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\Menu_SetAlarms.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\Menu_SetAlarmsContext.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\Mode_SetAlarms_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\Set Alarms Audible Virbration\Menu_SetAlarms_AudibleVibration_Audible.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\Set Alarms Audible Virbration\Menu_SetAlarms_AudibleVibration_Audible_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\Set Alarms Audible Virbration\Menu_SetAlarms_AudibleVibration_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\Set Alarms Audible Virbration\Menu_SetAlarms_AudibleVibration_MainPage.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\Set Alarms Audible Virbration\Menu_SetAlarms_AudibleVibration_Vibaration.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\Set Alarms Audible Virbration\Menu_SetAlarms_AudibleVibration_Vibaration_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\Set Alarms CC6 Press\Menu_SetAlarms_CC6Press.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\Set Alarms CC6 Press\Menu_SetAlarms_CC6Press_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\Set Alarms Depth\Menu_SetAlarms_DEPTH.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\Set Alarms Depth\Menu_SetAlarms_DEPTH_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\Set Alarms Dive Time TTS\Menu_SetAlarms_DiveTimeTTS_Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\Set Alarms Dive Time TTS\Menu_SetAlarms_DiveTimeTTS_DiveTime.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\Set Alarms Dive Time TTS\Menu_SetAlarms_DiveTimeTTS_MainPage.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\Set Alarms Dive Time TTS\Menu_SetAlarms_DiveTimeTTS_TTS.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\Set Alarms DTR\Menu_SetAlarms_DTR.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\Set Alarms DTR\Menu_SetAlarms_DTR_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\Set Alarms GF N2\Menu_SetAlarms_GFN2.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\Set Alarms GF N2\Menu_SetAlarms_GFN2_Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\Set Alarms Tank Press\Menu_SetAlarms_TankPress.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\Set Alarms Tank Press\Menu_SetAlarms_TankPress_Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\SetAlarms_EndWobIcd\Menu_SetAlarms_EndWobIcd.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\SetAlarms_EndWobIcd\Menu_SetAlarms_EndWobIcd_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\SetAlarms_EndWobIcd\Menu_SetAlarms_EndWobIcd_Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\SetAlarms_EndWobIcd\Menu_SetAlarms_EndWobIcd_End.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\SetAlarms_EndWobIcd\Menu_SetAlarms_EndWobIcd_Icd.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\SetAlarms_EndWobIcd\Menu_SetAlarms_EndWobIcd_O2Narcotic.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\SetAlarms_EndWobIcd\Menu_SetAlarms_EndWobIcd_Wob.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\SetAlarms_TurnEndPress\Menu_SetAlarms_TurnEndSwitchPress.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\SetAlarms_TurnEndPress\Menu_SetAlarms_TurnEndSwitchPress_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\SetAlarms_TurnEndPress\Menu_SetAlarms_TurnEndSwitchPress_Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\SetAlarms_TurnEndPress\Menu_SetAlarms_TurnEndSwitchPress_END.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\SetAlarms_TurnEndPress\Menu_SetAlarms_TurnEndSwitchPress_SWITCH.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Alarms\SetAlarms_TurnEndPress\Menu_SetAlarms_TurnEndSwitchPress_TURN.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Date and Time\ContextSetDateAndTimeCfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Date and Time\Menu_DateAndTime_Date.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Date and Time\Menu_DateAndTime_DateFormat.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Date and Time\Menu_DateAndTime_DateFormat_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Date and Time\Menu_DateAndTime_Date_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Date and Time\Menu_DateAndTime_MainPage.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Date and Time\Menu_DateAndTime_MainPage_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Date and Time\Menu_DateAndTime_Time.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Date and Time\Menu_DateAndTime_TimeFormat.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Date and Time\Menu_DateAndTime_TimeFormat_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Date and Time\Menu_DateAndTime_Time_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\ContextSetGasesCfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Menu_SetGases_Context_GetData.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Menu_SetGases_Context_Main.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Menu_SetGases_Context_OnOffSet.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Menu_SetGases_Context_SetFHe.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Menu_SetGases_Context_SetFO2.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Menu_SetGases_Context_SetTMT.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Menu_SetGases_Page_Main.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Menu_SetGases_Page_SetFHe.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Menu_SetGases_Page_SetFO2.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Menu_SetGases_Page_SetOnOffSet.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Menu_SetGases_Page_SetTMT.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Menu_SetGases_Page_Warning_FHe.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Menu_SetGases_Page_Warning_SetGasOff.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Menu_SetGases_Page_Warning_TMT.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Mode_SetGases_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Set_O2_Analyzer\ButtonHandle_O2AnalyzerList.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Set_O2_Analyzer\Menu_O2Analyzer_Context_Analyzer_AnalysisResultConfirmation.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Set_O2_Analyzer\Menu_O2Analyzer_Context_Analyzer_Analyzing.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Set_O2_Analyzer\Menu_O2Analyzer_Context_Analyzer_CalibrationWarning.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Set_O2_Analyzer\Menu_O2Analyzer_Context_Analyzer_ConfirmAnalyzerGas.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Set_O2_Analyzer\Menu_O2Analyzer_Context_Analyzer_ReadyAnalyzing.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Set_O2_Analyzer\Menu_O2Analyzer_Context_Analyzer_SelectGasList.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Set_O2_Analyzer\Menu_O2Analyzer_Context_Analyzer_SetFHe.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Set_O2_Analyzer\Menu_O2Analyzer_Context_Calibrate_CalibrationReport.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Set_O2_Analyzer\Menu_O2Analyzer_Context_Calibrate_NoO2AnalyzerFound.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Set_O2_Analyzer\Menu_O2Analyzer_Context_Calibrate_NoO2CellFound.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Set_O2_Analyzer\Menu_O2Analyzer_Context_Calibrate_O2CalibrationComplete.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Set_O2_Analyzer\Menu_O2Analyzer_Context_Calibrate_O2CellDepleted.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Set_O2_Analyzer\Menu_O2Analyzer_Context_Calibrate_ReadingO2Cell.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Set_O2_Analyzer\Menu_O2Analyzer_Context_Calibrate_ReadyCalibaration.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Set_O2_Analyzer\Menu_O2Analyzer_Context_Calibrate_SetPoint.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Set_O2_Analyzer\Menu_O2Analyzer_Context_Main.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Set_O2_Analyzer\Menu_O2Analyzer_Page_Analyzer.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Set_O2_Analyzer\Menu_O2Analyzer_Page_AnalyzerList.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Set_O2_Analyzer\Menu_O2Analyzer_Page_Calibrate.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Set_O2_Analyzer\Menu_O2Analyzer_Page_Main.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Gases\Set_O2_Analyzer\Mode_O2Analyzer_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Menu\ContextSetMenuCfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Menu\Menu_SetMenu.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Menu\Menu_SetMenu_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set Menu\Mode_SetMenu_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set SP\ContextSetSPCfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set SP\Menu_SetSP_AutoHigh.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set SP\Menu_SetSP_AutoHigh_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set SP\Menu_SetSP_AutoLow.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set SP\Menu_SetSP_AutoLow_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set SP\Menu_SetSP_CustomSP.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set SP\Menu_SetSP_CustomSP_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set SP\Menu_SetSP_HighSP.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set SP\Menu_SetSP_HighSP_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set SP\Menu_SetSP_LowSP.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set SP\Menu_SetSP_LowSP_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set SP\Menu_SetSP_MainPage.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Set SP\Menu_SetSP_MainPage_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\SP Switch\ContextSPSwitchCfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\SP Switch\Menu_SPSwitch.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\SP Switch\Menu_SPSwitch_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\ButtonHandle_SetValueOpcodeSurface.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceGraph_AscentBar.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceGraph_Battery.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceGraph_Bluetooth.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceGraph_GFBar.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceGraph_N2Bar.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceHandle_3rdRowContent_Left.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceHandle_3rdRowContent_Right.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceHandle_3rdRowLeftRight.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceHandle_BottomAlarms.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceHandle_CC6TankPressure.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceHandle_CheckBottomDisplay.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceHandle_ClearPortionScreen.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceHandle_ColorGTR.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceHandle_DisplayGTR.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceHandle_DisplayTimeOnSurfaceCheck.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceHandle_GaugeCheckDisplayTMT.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceHandle_LastDiveInformation.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceHandle_N2orASCBarCheck.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceHandle_OCLefRightDisplay.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceHandle_PressureDisplay.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceHandle_PressureStatusCheck.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceMode_CC_Alt_1.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceMode_CC_Alt_2.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceMode_CC_Alt_3.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceMode_CC_Alt_4.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceMode_CC_Alt_5.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceMode_CC_Main.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceMode_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceMode_Context.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceMode_GaugeSM_Main.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceMode_Gauge_Alt_1.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceMode_Gauge_Alt_2.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceMode_Gauge_Main.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceMode_SM_Alt1.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceMode_SM_Alt2.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceMode_SM_Alt3.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceMode_SM_Alt4.c" />
+    <ClCompile Include="..\OpcodeHandle\Surface Mode\SurfaceMode_SM_Main.c" />
+    <ClCompile Include="..\OpcodeHandle\WarningAndErrorMsgs\Error_Warning_Pages.c" />
+    <ClCompile Include="..\OpcodeHandle\WarningAndErrorMsgs\Error_Warning_Pages_Cfg.c" />
+    <ClCompile Include="..\OpcodeHandle\WelcomeScreen\ManufacturingScreen.c" />
+    <ClCompile Include="..\OpcodeHandle\WelcomeScreen\RegisterScreen.c" />
+    <ClCompile Include="..\OpcodeHandle\WelcomeScreen\WelcomeScreen.c" />
+    <ClCompile Include="..\ShapeDSX.c" />
+    <ClCompile Include="..\Text_DSX.c" />
+    <ClCompile Include="Application\MainTask.c" />
+    <ClCompile Include="Config\GUIConf.c" />
+    <ClCompile Include="Config\LCDConf.c" />
+    <ClCompile Include="Config\SIMConf.c" />
+    <ClCompile Include="Simulation\WinMain.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\BUTTON.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\BUTTON_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\CALENDAR.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\CHECKBOX.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\CHECKBOX_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\CHOOSECOLOR.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\CHOOSEFILE.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\DIALOG.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\DIALOG_Intern.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\DROPDOWN.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\DROPDOWN_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\EDIT.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\EDIT_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\FRAMEWIN.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\FRAMEWIN_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\Global.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GRAPH.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GRAPH_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUI.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUIDRV_DCache.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUIDRV_DCache_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUIDRV_Dist.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUIDRV_FlexColor.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUIDRV_FlexColor_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUIDRV_Lin.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUIDRV_Lin_Opt_16.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUIDRV_Lin_Opt_24.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUIDRV_Lin_Opt_32.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUIDRV_Lin_Opt_8.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUIDRV_Lin_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUIDRV_NoOpt_1_8.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUIDRV_Template.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUIDRV_TemplateI.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUIDRV_TemplateI_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUIMTDRV_TangoC32.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUITDRV_ADS7846.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUI_ARRAY.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUI_ARRAY_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUI_BMP_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUI_ConfDefaults.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUI_Debug.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUI_FontIntern.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUI_GIF_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUI_HOOK.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUI_JPEG_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUI_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUI_SetOrientation.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUI_SetOrientationCX.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUI_SIM_Win32.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUI_SPRITE_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUI_Type.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUI_Version.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\GUI_VNC.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\HEADER.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\HEADER_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\ICONVIEW.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\ICONVIEW_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\IMAGE.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\IMAGE_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\KNOB.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\KNOB_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\LCD.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\LCD_ConfDefaults.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\LCD_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\LCD_Protected.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\LCD_SIM.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\LISTBOX.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\LISTBOX_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\LISTVIEW.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\LISTVIEW_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\LISTWHEEL.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\LISTWHEEL_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\MENU.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\MENU_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\MESSAGEBOX.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\MULTIEDIT.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\MULTIPAGE.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\MULTIPAGE_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\PROGBAR.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\PROGBAR_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\RADIO.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\RADIO_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\SCROLLBAR.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\SCROLLBAR_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\SLIDER.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\SLIDER_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\SPINBOX.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\SPINBOX_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\SWIPELIST.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\SWIPELIST_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\TEXT.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\TEXT_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\TREEVIEW.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\TREEVIEW_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\WIDGET.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\WINDOW_Private.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\WM.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\WM_GUI.h" />
+    <ClInclude Include="..\..\..\Libraries\Middleware\STemWin\inc_V544\WM_Intern.h" />
+    <ClInclude Include="..\..\DsxOCDefine.h" />
+    <ClInclude Include="..\DsxOcConfig.h" />
+    <ClInclude Include="..\Icon_DSX.h" />
+    <ClInclude Include="..\OC_DSX.h" />
+    <ClInclude Include="..\OpcodeHandle\Menu\Device Settings\ContextDeviceSettingsCfg.h" />
+    <ClInclude Include="..\OpcodeHandle\Menu\Display Settings\ContextDisplaySettingsCfg.h" />
+    <ClInclude Include="..\OpcodeHandle\Menu\Dive Settings\ContextDiveSettingsCfg.h" />
+    <ClInclude Include="..\OpcodeHandle\Menu\Gas Switch\ContextGasSwitchCfg.h" />
+    <ClInclude Include="..\OpcodeHandle\Menu\Set Alarms\ContextSetAlarmsCfg.h" />
+    <ClInclude Include="..\OpcodeHandle\Menu\Set Alarms\SetAlarms_TurnEndPress\Menu_SetAlarms_TurnEndSwitchPress.h" />
+    <ClInclude Include="..\OpcodeHandle\Menu\Set Menu\ContextSetMenuCfg.h" />
+    <ClInclude Include="..\OpcodeHandle\Menu\Set SP\ContextSetSPCfg.h" />
+    <ClInclude Include="..\OpcodeHandle\Menu\SP Switch\ContextSPSwitchCfg.h" />
+    <ClInclude Include="..\OpcodeHandle\Surface Mode\SurfaceMode.h" />
+    <ClInclude Include="Config\GUIConf.h" />
+    <ClInclude Include="Config\LCDConf.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Simulation\GUI_SIM_Win32.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="Simulation\GUISim.lib" />
+    <Library Include="Simulation\STemWin_WIN32.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Simulation\SimulationMinGW.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Simulation.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

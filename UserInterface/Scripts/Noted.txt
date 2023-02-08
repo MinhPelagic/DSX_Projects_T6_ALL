@@ -1,0 +1,4 @@
+How to convert the python to exe
+1. Reference: https://datatofish.com/executable-pyinstaller/
+2. pip install pyinstaller
+3. When it done -> Excute this command: pyinstaller --onefile Py_OpcodeGen.py
