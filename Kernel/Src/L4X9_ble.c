@@ -2643,8 +2643,6 @@ bool Ble_NameInit (void)
  ******************************************************************************/
 void Ble_Handler (void)
 {
-    static uint32_t GnssStatusNotReadyCnt = 0;
-    
     // Switch Off BLE in Sleep Mode
     // Switch Off BLE during Dive and AfterDive
     if(   (SystemStatus.SystemPowerMode == SYS_PSM)
@@ -2698,21 +2696,25 @@ void Ble_Handler (void)
     /*******************************************************************************************************************************
     //  R1006 Gnss_Sleep or Gnss_Off for better BLE Connection; needs to do Gnss_WakeUp or Gnss_On after BLE Conneciton is formed
     *******************************************************************************************************************************/
-    if(PROD_BLE_IS_CONNECTED)   
+    if(PROD_BLE_IS_CONNECTED)
     {
-        isBleConnected = true;        
-        if(isBleConnected_Pre != isBleConnected)
+        if( (((MonotonicClock_s - SystemStatus.WakeUpTimestamp) > 8) && (Dive_Info.Status == AMB_DIVEINFO_NEWDAY))       // to avoid noise at P2 and P4 occuring at wakeup time
+          ||(((MonotonicClock_s - SystemStatus.WakeUpTimestamp) > 3) && (Dive_Info.Status == AMB_DIVEINFO_SURF)) )       // allow BLE connection only after GUI showing Surface Main GUI
         {
-            if(GnssStatus >= GNSS_ON)
-                Gnss_Sleep();
-            else
-                Gnss_Off();
+            isBleConnected = true;
+            if(isBleConnected_Pre != isBleConnected)
+            {
+                if(GnssStatus >= GNSS_ON)
+                    Gnss_Sleep();
+                else
+                    Gnss_Off();
+            }
+            isBleConnected_Pre = isBleConnected;
         }
-        isBleConnected_Pre = isBleConnected;
     }
     else
     {
-        isBleConnected = false;        
+        isBleConnected = false;
         if(isBleConnected_Pre != isBleConnected)
         {
             if(GnssStatus >= GNSS_SLEEP)
@@ -2759,8 +2761,6 @@ void Ble_Handler (void)
             {
                 St2Ble_PowerOn();
                 SystemStatus.BLE_status = BLE_HDL_WAIT_BLE_ON_1;
-                
-                GnssStatusNotReadyCnt = 0;      // reset test cnt back to 0
             }
         }
         break;

@@ -705,7 +705,7 @@ uint8_t AutoBRIGHTNESS = 10;
 uint8_t PreAutoBRIGHTNESS;
 
 uint8_t AutoDim_enable_flat =FALSE;
-float SensorReadbackLux = 100.0;
+float SensorReadbackLux = 60.0;
     
 void BacklightManager (void)
 {   
@@ -760,7 +760,10 @@ void BacklightManager (void)
             /*anable auto BR*/        
             // BSL Brightness Control ===========================================================================================================================
             SystemStatus.I2C2_flag = 1;
-            // SensorReadbackLux = LightSensorLuxReading();     // R1006 temporarily disable ALS
+            
+            if(SystemStatus.BLE_status != BLE_HDL_CONNECT)   // R1006 does NOT run LightSensorLuxReading while BLE Connected (just use previous value stored in SensorReadbackLux)
+              SensorReadbackLux = LightSensorLuxReading();
+            
             AutoBRIGHTNESS = AutoBackLight(SensorReadbackLux);
             
             if(AutoBRIGHTNESS != PreAutoBRIGHTNESS)
@@ -887,11 +890,14 @@ void BacklightManager (void)
             } // End if(SystemStatus.SystemPowerMode == SYS_ACTIVE)
         }
     }
-    else if((DSX_Opcode == DISPLAY_BRIGHTNESS_SET)&&(GUI_BRIGHTNESS_LV == 110)&&(SystemStatus.BLE_status != BLE_HDL_CONNECT))   // R1006 does NOT run LightSensorLuxReading while BLE Connected
+    else if((DSX_Opcode == DISPLAY_BRIGHTNESS_SET)&&(GUI_BRIGHTNESS_LV == 110))
     {
         // BSL Brightness Control ===========================================================================================================================
         SystemStatus.I2C2_flag = 1;
-        //SensorReadbackLux = LightSensorLuxReading();          // R1006 temporarily disable ALS
+        
+        if(SystemStatus.BLE_status != BLE_HDL_CONNECT)   // R1006 does NOT run LightSensorLuxReading while BLE Connected (just use previous value stored in SensorReadbackLux)
+          SensorReadbackLux = LightSensorLuxReading();
+        
         AutoBRIGHTNESS = AutoBackLight(SensorReadbackLux);
         
         if(AutoBRIGHTNESS != PreAutoBRIGHTNESS)
@@ -1041,8 +1047,10 @@ void System2Active(void)
     
   // Update Last User activity timer
   SystemStatus.user_act_timestamp = MonotonicClock_s;
-      
- 
+  
+  // Update the moment of when system becomes Active mode
+  SystemStatus.WakeUpTimestamp = MonotonicClock_s;
+  
   // Initialize LCD Driver
   LCD_Init();
 

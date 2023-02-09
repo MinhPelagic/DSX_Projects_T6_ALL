@@ -158,6 +158,7 @@ typedef struct
   bool NvdUpdateInProgress;   
 
   int32_t ButtonRebootReqTimestamp;
+  int32_t WakeUpTimestamp;              /* R1006 The time stamp recording the moment of this wakeup */
   bool system_reboot_request;
   
   bool DiagnosticReq;

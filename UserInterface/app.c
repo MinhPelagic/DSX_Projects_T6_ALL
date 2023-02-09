@@ -315,7 +315,10 @@ void NewDayInit(void)
     GUI_O2ANALYZER_CALIB_FLAT = false;          // to void previous O2 Analyzer Calibration result, a new one is now needed
 
     // GPS turns ON
-    Gnss_On();
+    if(GnssStatus >= GNSS_SLEEP)
+        Gnss_WakeUp();
+    else
+        Gnss_On();
 
     // Battery Charging GUI
     if(BatteryCharging())

@@ -8024,7 +8024,11 @@ uint16_t OPCODE_Matrix(DSX_OPCODE_t OldOpcode)
         // it is handled by IC driver...
         SystemStatus.user_act_timestamp = MonotonicClock_s;         // keep System Awake, NOT going to sleep as long as GPS Compass Main Page is ON
 
-        Gnss_On();
+        if(GnssStatus >= GNSS_SLEEP)
+            Gnss_WakeUp();
+        else
+            Gnss_On();
+        
         GnssGGA.Target_Distance = Gnss_Calc_Distance (GnssGGA.Longitude_DD, GnssGGA.Latitude_DD, GnssGGA.Longitude_Target_DD, GnssGGA.Latitude_Target_DD);
         GnssGGA.Target_Direction = Gnss_WayFinderBrearing (GnssGGA.Longitude_DD, GnssGGA.Latitude_DD, GnssGGA.Longitude_Target_DD, GnssGGA.Latitude_Target_DD);
 

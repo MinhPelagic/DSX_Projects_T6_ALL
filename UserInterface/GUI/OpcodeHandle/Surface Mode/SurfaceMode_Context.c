@@ -164,13 +164,11 @@ void SurfaceMode_FlyTittle_Value(char* pStrRet)
 {
     if(FLY_Hr<10U)
     {
-        // sprintf(pStrRet, " %d:%.2d ", FLY_Hr, FLY_Min);         // 
-        sprintf(pStrRet, " %d:%.2d ", (uint16_t)SystemStatus.BLE_status, (uint16_t)GnssStatus );         // 
+        sprintf(pStrRet, " %d:%.2d ", FLY_Hr, FLY_Min);
     }
     else
     {
-        // sprintf(pStrRet, " %d:%.2d ", FLY_Hr, FLY_Min);         // 
-        sprintf(pStrRet, " %d:%.2d ", (uint16_t)SystemStatus.BLE_status, (uint16_t)GnssStatus );         // 
+        sprintf(pStrRet, " %.2d:%.2d ", FLY_Hr, FLY_Min);
     }
 }
 /*Last Dive*/
