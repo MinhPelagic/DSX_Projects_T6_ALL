@@ -731,4 +731,12 @@ void GUI_DISPLAY_Update(void)
 {
 
 }
+void ErrHandle_EE(void)
+{
+
+}
+void St2Ble_PowerDown(void)
+{
+
+}
 /*************************** End of file ****************************/

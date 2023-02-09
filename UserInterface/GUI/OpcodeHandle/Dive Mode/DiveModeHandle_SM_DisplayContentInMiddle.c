@@ -29,14 +29,14 @@ void Dive_SM_Handle_CheckDisplayMiddle(void)
             HandleDisplayTextWithMemdev(IteStat_ClearThenSelect, SurfaceMode_PO2_SMMode_Tittle);
             HandleDisplayItemMdev(SurfaceMode_PO2_SMMode_Value);
             /**********************************************************************************************************************
-            Keep original color if 
+            Keep original color if
             (1) Current Gas is the Best Gas, BestGasNumber == CurrGasNumber)
             (2) Other tank has the same FO2 to the Best Gase, fFO2[CurrGasNumber]==fFO2[BestGasNumber
             (3) No Best Gas can be found, BestGasNumber == 0
             (4) fDepthFt > Find_BestGas_MOD, beyond the depth that needs to consider BestGasNumber and CurrGasNumber
             (5) If not in Dive Mode, use White color font to display FO2/FHe String
             Otherwise, change font color to YELLOW Product Specifications D4, Display Specification A29, A30, A31
-            **********************************************************************************************************************/        
+            **********************************************************************************************************************/
             /*Check if Selected Tank is a Best Gas*/
             if( (fFO2[CurrGasNumber]!=fFO2[BestGasNumber]) && (Dive_Info.Status == AMB_DIVEINFO_DIVE) && (BestGasNumber != 0) )
             {

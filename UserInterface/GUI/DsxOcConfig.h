@@ -1016,6 +1016,8 @@ void UpdOrFlasFunc_DEVICE_BLUETOOTH_SET(void);
 void IniOrClrScrFunc_DEVICE_BLUETOOTH_PASSCODE(void);
 /*1.3 Flashing or keep update content of items DEVICE_BLUETOOTH_PASSCODE */
 void UpdOrFlasFunc_DEVICE_BLUETOOTH_PASSCODE(void);
+/*1. Clear or Initilal screen for  DEVICE_BLUETOOTH_DOWNLOAD_DATA operation*/
+void IniOrClrScrFunc_DEVICE_BLUETOOTH_DOWNLOAD_DATA(void);
 /*1. Clear or Initilal screen for  RESETSETTINGS_S1 operation*/
 void IniOrClrScrFunc_RESETSETTINGS_S1(void);
 /*1. Clear or Initilal screen for  RESETSETTINGS_S2 operation*/
@@ -3612,6 +3614,12 @@ void IniOrClrScrFunc_E22_POPUP_USINGDIVELOGAPP(void);
 #define Call_UpdOrFlashFunc_DEVICE_BLUETOOTH_PASSCODE	UpdOrFlasFunc_DEVICE_BLUETOOTH_PASSCODE
 #define Call_CondiCheckPreOCFunc_DEVICE_BLUETOOTH_PASSCODE	ReturnFalse
 #define Call_HandlePreOCFunc_DEVICE_BLUETOOTH_PASSCODE	FuncDoNothing
+#define Call_InitFunc_DEVICE_BLUETOOTH_DOWNLOAD_DATA	IniOrClrScrFunc_DEVICE_BLUETOOTH_DOWNLOAD_DATA
+#define Call_CondiCheckFunc_DEVICE_BLUETOOTH_DOWNLOAD_DATA ReturnTrue
+#define Call_UpdPortionFunc_DEVICE_BLUETOOTH_DOWNLOAD_DATA	FuncDoNothing
+#define Call_UpdOrFlashFunc_DEVICE_BLUETOOTH_DOWNLOAD_DATA	FuncDoNothing
+#define Call_CondiCheckPreOCFunc_DEVICE_BLUETOOTH_DOWNLOAD_DATA	ReturnFalse
+#define Call_HandlePreOCFunc_DEVICE_BLUETOOTH_DOWNLOAD_DATA	FuncDoNothing
 #define Call_InitFunc_RESETSETTINGS_S1	IniOrClrScrFunc_RESETSETTINGS_S1
 #define Call_CondiCheckFunc_RESETSETTINGS_S1 ReturnTrue
 #define Call_UpdPortionFunc_RESETSETTINGS_S1	FuncDoNothing

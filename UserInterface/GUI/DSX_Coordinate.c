@@ -696,6 +696,14 @@ const CooGUI_tds* Pos_Bluetooth_PasscodeTxt;
 static const CooGUI_tds Pos_Bluetooth_PasscodeValue_Normal = {160,140,85,140,150,60,235,200};
 static const CooGUI_tds Pos_Bluetooth_PasscodeValue_Flipped = {160,164,85,140,150,60,235,200};
 const CooGUI_tds* Pos_Bluetooth_PasscodeValue;
+/*Pos_Bluetooth_DownLoadData_01 portion*/
+static const CooGUI_tds Pos_Bluetooth_DownLoadData_01_Normal = {160,115,0,115,320,32,320,147};
+static const CooGUI_tds Pos_Bluetooth_DownLoadData_01_Flipped = {160,139,0,115,320,32,320,147};
+const CooGUI_tds* Pos_Bluetooth_DownLoadData_01;
+/*Pos_Bluetooth_DownLoadData_02 portion*/
+static const CooGUI_tds Pos_Bluetooth_DownLoadData_02_Normal = {160,147,0,147,320,32,320,179};
+static const CooGUI_tds Pos_Bluetooth_DownLoadData_02_Flipped = {160,171,0,147,320,32,320,179};
+const CooGUI_tds* Pos_Bluetooth_DownLoadData_02;
 /*Pos_Slates_Tittle portion*/
 static const CooGUI_tds Pos_Slates_Tittle_Normal = {180,0,180,0,140,23,320,23};
 static const CooGUI_tds Pos_Slates_Tittle_Flipped = {180,24,180,0,140,23,320,23};
@@ -1250,6 +1258,8 @@ void AsssignedCoordinated(uint8_t FlippingStauts)
         Pos_GPS_Page_Txt_05 = &Pos_GPS_Page_Txt_05_Flipped;
         Pos_Bluetooth_PasscodeTxt = &Pos_Bluetooth_PasscodeTxt_Flipped;
         Pos_Bluetooth_PasscodeValue = &Pos_Bluetooth_PasscodeValue_Flipped;
+        Pos_Bluetooth_DownLoadData_01 = &Pos_Bluetooth_DownLoadData_01_Flipped;
+        Pos_Bluetooth_DownLoadData_02 = &Pos_Bluetooth_DownLoadData_02_Flipped;
         Pos_Slates_Tittle = &Pos_Slates_Tittle_Flipped;
         Pos_SurfClearToUpdate_1 = &Pos_SurfClearToUpdate_1_Flipped;
         Pos_SurfClearToUpdate_2 = &Pos_SurfClearToUpdate_2_Flipped;
@@ -1520,6 +1530,8 @@ void AsssignedCoordinated(uint8_t FlippingStauts)
         Pos_GPS_Page_Txt_05 = &Pos_GPS_Page_Txt_05_Normal;
         Pos_Bluetooth_PasscodeTxt = &Pos_Bluetooth_PasscodeTxt_Normal;
         Pos_Bluetooth_PasscodeValue = &Pos_Bluetooth_PasscodeValue_Normal;
+        Pos_Bluetooth_DownLoadData_01 = &Pos_Bluetooth_DownLoadData_01_Normal;
+        Pos_Bluetooth_DownLoadData_02 = &Pos_Bluetooth_DownLoadData_02_Normal;
         Pos_Slates_Tittle = &Pos_Slates_Tittle_Normal;
         Pos_SurfClearToUpdate_1 = &Pos_SurfClearToUpdate_1_Normal;
         Pos_SurfClearToUpdate_2 = &Pos_SurfClearToUpdate_2_Normal;

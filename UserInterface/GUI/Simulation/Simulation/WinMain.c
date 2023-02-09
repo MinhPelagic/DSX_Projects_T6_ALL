@@ -282,7 +282,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		{
 		case VK_SPACE:
 			/*TEST Opcode*/
-			DSX_OPCODE = REGISTER_SCREEN;
+			DSX_OPCODE = DEVICE_BLUETOOTH_DOWNLOAD_DATA;
 			DSX_Opcode = DSX_OPCODE;
 			DSX_GenerateLogic();
 			dc = GetDC(hWnd);

@@ -79,7 +79,7 @@ static const GUI_POINT bleMainIcon[nPoints_BleIcon+1]=
     {+aH_BleIconX2, +0},
     {+0, +bH_BleIcon},
 };
-static void DispBleMainIcon(void)
+void DispBleMainIcon(void)
 {
     GUI_SetColor(GUI_CYAN);
     /*Draw the icon*/

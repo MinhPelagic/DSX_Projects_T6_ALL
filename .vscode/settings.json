@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "menu_devicesettings.h": "c",
+        "contextdevicesettingscfg.h": "c"
+    }
+}

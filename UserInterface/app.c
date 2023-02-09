@@ -112,7 +112,7 @@ void UI_App (void)
         if( !REGISTER_Done() )
         {
             DSX_Opcode = REGISTER_SCREEN;
-            
+
             pre_DSX_Opcode = W1_WELCOME;
         }
         else if( (DSX_Opcode != W1_WELCOME) )
@@ -127,7 +127,7 @@ void UI_App (void)
                 DSX_Opcode = S2_SURFACE_MAIN;
             else if( GAUGE_MODE && (DSX_Opcode!=SURFACE_GAUGE_MAIN))
                 DSX_Opcode = SURFACE_GAUGE_MAIN;
-            
+
             pre_DSX_Opcode = W1_WELCOME;
         }
     }
@@ -529,7 +529,7 @@ void UI_WakeFromPsm(void)
     GUI_TTF_Done();
     DSX_Opcode = (DSX_OPCODE_t)S2_SURFACE_MAIN;
     pre_DSX_Opcode =(DSX_OPCODE_t) 0xFFFF;
-    
+
     St2Ble_PowerDown();
 }
 
@@ -5495,7 +5495,7 @@ bool CheckTheBluetoothPasscodeDisplay(void)
                 {
                     PCode = (SystemStatus.BLE_PassCode[i]-0x30)+(PCode*10);
                 }
-                
+
                 SystemStatus.BLE_PsShowReq = true;		//R1006, for displaying complete message if more-than-one-time display is needed
                 BLE_AcessInitDone = false;				//R1006, for displaying complete message if more-than-one-time display is needed
                 //Passcode_Number(DispInitial, PCode);

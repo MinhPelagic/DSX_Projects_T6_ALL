@@ -722,18 +722,18 @@ uint16_t OPCODE_Matrix(DSX_OPCODE_t OldOpcode)
             {
                 // Read back from DEV_Rec EEPROM to DEV_Rec RAM for Compass Calibrated Data
                 int8_t retry = NVD_EEPROM_READ_TIMEOUT;
-                do{}while(!EE24CWxxX_ReadNBytes( NVD_DEVREC_LOC1, &DEV_Rec, sizeof(DEV_Rec))&& (retry-- > 0));      // Modified for R1006
+                do {} while(!EE24CWxxX_ReadNBytes( NVD_DEVREC_LOC1, &DEV_Rec, sizeof(DEV_Rec))&& (retry-- > 0));      // Modified for R1006
                 if(retry <= 0)
                 {
                     ErrHandle_EE();
-                }            
+                }
                 PrepareForBacklightSetAgain();      // prepare Brightness setting again
 
                 // migrate to next GUI page
                 NewOpcode = MANUFACTURE_SCREEN;
 
                 ResetButtonMemory();
-                
+
                 // St2Ble_PowerDown();         // R1006, added an St2Ble_PowerDown(); here to reset BLE chip
             }
         }
@@ -773,7 +773,7 @@ uint16_t OPCODE_Matrix(DSX_OPCODE_t OldOpcode)
 
             StaySameOpcodeForNSec(0);
 
-            ResetButtonMemory();            
+            ResetButtonMemory();
         }
         break;
     case W2_WAIT_MESSAGE:
@@ -4941,68 +4941,68 @@ uint16_t OPCODE_Matrix(DSX_OPCODE_t OldOpcode)
         // GUI to display GAS SWITCH page S328
         // Assign Gas Tank 1 to 6's On/Off status according to current EEPROM record
 
-            GUI_SetPoints_Gas_CC[1] = (NVD_status_t)TRIMIX_Set.CC_Active.Gas1;          // 1: ON;  0: OFF
-            GUI_SetPoints_Gas_CC[2] = (NVD_status_t)TRIMIX_Set.CC_Active.Gas2;          // 1: ON;  0: OFF
-            GUI_SetPoints_Gas_CC[3] = (NVD_status_t)TRIMIX_Set.CC_Active.Gas3;          // 1: ON;  0: OFF
-            GUI_SetPoints_Gas_CC[4] = (NVD_status_t)TRIMIX_Set.CC_Active.Gas4;          // 1: ON;  0: OFF
-            GUI_SetPoints_Gas_CC[5] = (NVD_status_t)TRIMIX_Set.CC_Active.Gas5;          // 1: ON;  0: OFFF
-            GUI_SetPoints_Gas_CC[6] = (NVD_status_t)TRIMIX_Set.CC_Active.Gas6;          // 1: ON;  0: OFF
+        GUI_SetPoints_Gas_CC[1] = (NVD_status_t)TRIMIX_Set.CC_Active.Gas1;          // 1: ON;  0: OFF
+        GUI_SetPoints_Gas_CC[2] = (NVD_status_t)TRIMIX_Set.CC_Active.Gas2;          // 1: ON;  0: OFF
+        GUI_SetPoints_Gas_CC[3] = (NVD_status_t)TRIMIX_Set.CC_Active.Gas3;          // 1: ON;  0: OFF
+        GUI_SetPoints_Gas_CC[4] = (NVD_status_t)TRIMIX_Set.CC_Active.Gas4;          // 1: ON;  0: OFF
+        GUI_SetPoints_Gas_CC[5] = (NVD_status_t)TRIMIX_Set.CC_Active.Gas5;          // 1: ON;  0: OFFF
+        GUI_SetPoints_Gas_CC[6] = (NVD_status_t)TRIMIX_Set.CC_Active.Gas6;          // 1: ON;  0: OFF
 
-            for(i=1; i<=6; i++)
-            {
-                GUI_FO2_Gas_CC[i]      = TRIMIX_Set.CC_FO2[i];             // CC-x FO2/000
-                GUI_FHe_Gas_CC[i]      = TRIMIX_Set.CC_FHe[i];             // CC-x 000/FHe
-                GUI_PO2_Gas[i]      = TRIMIX_Set.CC_PO2A[i];            // CC-x PO2 set value
-                GUI_NumOfTMT_Gas_CC[i] = (TMT_NUM_t)TRIMIX_Set.CC_GASTMT[i];          // CC-x
-            }
-
-
-            GUI_SetPoints_Gas_BO[1] = (NVD_status_t)TRIMIX_Set.BO_Active.Gas1;          // 1: ON;  0: OFF
-            GUI_SetPoints_Gas_BO[2] = (NVD_status_t)TRIMIX_Set.BO_Active.Gas2;          // 1: ON;  0: OFF
-            GUI_SetPoints_Gas_BO[3] = (NVD_status_t)TRIMIX_Set.BO_Active.Gas3;          // 1: ON;  0: OFF
-            GUI_SetPoints_Gas_BO[4] = (NVD_status_t)TRIMIX_Set.BO_Active.Gas4;          // 1: ON;  0: OFF
-            GUI_SetPoints_Gas_BO[5] = (NVD_status_t)TRIMIX_Set.BO_Active.Gas5;          // 1: ON;  0: OFFF
-            GUI_SetPoints_Gas_BO[6] = (NVD_status_t)TRIMIX_Set.BO_Active.Gas6;          // 1: ON;  0: OFF
-
-            for(i=1; i<=6; i++)
-            {
-                GUI_FO2_Gas_BO[i]      = TRIMIX_Set.BO_FO2[i];             // CC-x FO2/000
-                GUI_FHe_Gas_BO[i]      = TRIMIX_Set.BO_FHe[i];             // CC-x 000/FHe
-                GUI_PO2_Gas[i]      = TRIMIX_Set.BO_PO2A[i];            // CC-x PO2 set value
-                GUI_NumOfTMT_Gas_BO[i] = (TMT_NUM_t)TRIMIX_Set.BO_GASTMT[i];          // CC-x
-            }
+        for(i=1; i<=6; i++)
+        {
+            GUI_FO2_Gas_CC[i]      = TRIMIX_Set.CC_FO2[i];             // CC-x FO2/000
+            GUI_FHe_Gas_CC[i]      = TRIMIX_Set.CC_FHe[i];             // CC-x 000/FHe
+            GUI_PO2_Gas[i]      = TRIMIX_Set.CC_PO2A[i];            // CC-x PO2 set value
+            GUI_NumOfTMT_Gas_CC[i] = (TMT_NUM_t)TRIMIX_Set.CC_GASTMT[i];          // CC-x
+        }
 
 
-            GUI_SetPoints_Gas_OC[1] = (NVD_status_t)TRIMIX_Set.OC_Active.Gas1;          // 1: ON;  0: OFF
-            GUI_SetPoints_Gas_OC[2] = (NVD_status_t)TRIMIX_Set.OC_Active.Gas2;          // 1: ON;  0: OFF
-            GUI_SetPoints_Gas_OC[3] = (NVD_status_t)TRIMIX_Set.OC_Active.Gas3;          // 1: ON;  0: OFF
-            GUI_SetPoints_Gas_OC[4] = (NVD_status_t)TRIMIX_Set.OC_Active.Gas4;          // 1: ON;  0: OFF
-            GUI_SetPoints_Gas_OC[5] = (NVD_status_t)TRIMIX_Set.OC_Active.Gas5;          // 1: ON;  0: OFF
-            GUI_SetPoints_Gas_OC[6] = (NVD_status_t)TRIMIX_Set.OC_Active.Gas6;          // 1: ON;  0: OFF
+        GUI_SetPoints_Gas_BO[1] = (NVD_status_t)TRIMIX_Set.BO_Active.Gas1;          // 1: ON;  0: OFF
+        GUI_SetPoints_Gas_BO[2] = (NVD_status_t)TRIMIX_Set.BO_Active.Gas2;          // 1: ON;  0: OFF
+        GUI_SetPoints_Gas_BO[3] = (NVD_status_t)TRIMIX_Set.BO_Active.Gas3;          // 1: ON;  0: OFF
+        GUI_SetPoints_Gas_BO[4] = (NVD_status_t)TRIMIX_Set.BO_Active.Gas4;          // 1: ON;  0: OFF
+        GUI_SetPoints_Gas_BO[5] = (NVD_status_t)TRIMIX_Set.BO_Active.Gas5;          // 1: ON;  0: OFFF
+        GUI_SetPoints_Gas_BO[6] = (NVD_status_t)TRIMIX_Set.BO_Active.Gas6;          // 1: ON;  0: OFF
 
-            for(i=1; i<=6; i++)
-            {
-                GUI_FO2_Gas_OC[i]      = TRIMIX_Set.OC_FO2[i];             // OC-x FO2/000
-                GUI_FHe_Gas_OC[i]      = TRIMIX_Set.OC_FHe[i];             // OC-x 000/FHe
-                GUI_PO2_Gas_OC[i]      = TRIMIX_Set.OC_PO2A[i];            // OC-x PO2 set value
-                GUI_NumOfTMT_Gas_OC[i] = (TMT_NUM_t)TRIMIX_Set.OC_GASTMT[i];          // OC-x
-            }
+        for(i=1; i<=6; i++)
+        {
+            GUI_FO2_Gas_BO[i]      = TRIMIX_Set.BO_FO2[i];             // CC-x FO2/000
+            GUI_FHe_Gas_BO[i]      = TRIMIX_Set.BO_FHe[i];             // CC-x 000/FHe
+            GUI_PO2_Gas[i]      = TRIMIX_Set.BO_PO2A[i];            // CC-x PO2 set value
+            GUI_NumOfTMT_Gas_BO[i] = (TMT_NUM_t)TRIMIX_Set.BO_GASTMT[i];          // CC-x
+        }
 
 
-            GUI_SetPoints_Gas_SM[1] = (NVD_status_t)TRIMIX_Set.SM_Active.Gas1;          // 1: ON;  0: OFF
-            GUI_SetPoints_Gas_SM[2] = (NVD_status_t)TRIMIX_Set.SM_Active.Gas2;          // 1: ON;  0: OFF
-            GUI_SetPoints_Gas_SM[3] = (NVD_status_t)TRIMIX_Set.SM_Active.Gas3;          // 1: ON;  0: OFF
-            GUI_SetPoints_Gas_SM[4] = (NVD_status_t)TRIMIX_Set.SM_Active.Gas4;          // 1: ON;  0: OFF
-            GUI_SetPoints_Gas_SM[5] = (NVD_status_t)TRIMIX_Set.SM_Active.Gas5;          // 1: ON;  0: OFF
-            GUI_SetPoints_Gas_SM[6] = (NVD_status_t)TRIMIX_Set.SM_Active.Gas6;          // 1: ON;  0: OFF
+        GUI_SetPoints_Gas_OC[1] = (NVD_status_t)TRIMIX_Set.OC_Active.Gas1;          // 1: ON;  0: OFF
+        GUI_SetPoints_Gas_OC[2] = (NVD_status_t)TRIMIX_Set.OC_Active.Gas2;          // 1: ON;  0: OFF
+        GUI_SetPoints_Gas_OC[3] = (NVD_status_t)TRIMIX_Set.OC_Active.Gas3;          // 1: ON;  0: OFF
+        GUI_SetPoints_Gas_OC[4] = (NVD_status_t)TRIMIX_Set.OC_Active.Gas4;          // 1: ON;  0: OFF
+        GUI_SetPoints_Gas_OC[5] = (NVD_status_t)TRIMIX_Set.OC_Active.Gas5;          // 1: ON;  0: OFF
+        GUI_SetPoints_Gas_OC[6] = (NVD_status_t)TRIMIX_Set.OC_Active.Gas6;          // 1: ON;  0: OFF
 
-            for(i=1; i<=6; i++)
-            {
-                GUI_FO2_Gas_SM[i]      = TRIMIX_Set.SM_FO2[i];             // SM-x FO2/000
-                GUI_FHe_Gas_SM[i]      = TRIMIX_Set.SM_FHe[i];             // SM-x 000/FHe
-                GUI_PO2_Gas_SM[i]      = TRIMIX_Set.SM_PO2A[i];          // SM-x PO2 set value
-                GUI_NumOfTMT_Gas_SM[i] = (TMT_NUM_t)TRIMIX_Set.SM_GASTMT[i];          // SM-x
-            }
+        for(i=1; i<=6; i++)
+        {
+            GUI_FO2_Gas_OC[i]      = TRIMIX_Set.OC_FO2[i];             // OC-x FO2/000
+            GUI_FHe_Gas_OC[i]      = TRIMIX_Set.OC_FHe[i];             // OC-x 000/FHe
+            GUI_PO2_Gas_OC[i]      = TRIMIX_Set.OC_PO2A[i];            // OC-x PO2 set value
+            GUI_NumOfTMT_Gas_OC[i] = (TMT_NUM_t)TRIMIX_Set.OC_GASTMT[i];          // OC-x
+        }
+
+
+        GUI_SetPoints_Gas_SM[1] = (NVD_status_t)TRIMIX_Set.SM_Active.Gas1;          // 1: ON;  0: OFF
+        GUI_SetPoints_Gas_SM[2] = (NVD_status_t)TRIMIX_Set.SM_Active.Gas2;          // 1: ON;  0: OFF
+        GUI_SetPoints_Gas_SM[3] = (NVD_status_t)TRIMIX_Set.SM_Active.Gas3;          // 1: ON;  0: OFF
+        GUI_SetPoints_Gas_SM[4] = (NVD_status_t)TRIMIX_Set.SM_Active.Gas4;          // 1: ON;  0: OFF
+        GUI_SetPoints_Gas_SM[5] = (NVD_status_t)TRIMIX_Set.SM_Active.Gas5;          // 1: ON;  0: OFF
+        GUI_SetPoints_Gas_SM[6] = (NVD_status_t)TRIMIX_Set.SM_Active.Gas6;          // 1: ON;  0: OFF
+
+        for(i=1; i<=6; i++)
+        {
+            GUI_FO2_Gas_SM[i]      = TRIMIX_Set.SM_FO2[i];             // SM-x FO2/000
+            GUI_FHe_Gas_SM[i]      = TRIMIX_Set.SM_FHe[i];             // SM-x 000/FHe
+            GUI_PO2_Gas_SM[i]      = TRIMIX_Set.SM_PO2A[i];          // SM-x PO2 set value
+            GUI_NumOfTMT_Gas_SM[i] = (TMT_NUM_t)TRIMIX_Set.SM_GASTMT[i];          // SM-x
+        }
 
         if(CURRENT_TANK_NUM ==GASES_01) {
             NewOpcode = GAS_SWITCH_TO_GAS_2;
@@ -5079,7 +5079,7 @@ uint16_t OPCODE_Matrix(DSX_OPCODE_t OldOpcode)
 
                 if(GasSwitchPO2_Stat()!=GAS_SWITCH_PO2_TOO_LOW)
                 {
-                    //if((GUI_GAS_SWITCH_Step != GAS_SWITCH_TMT)&&(GUI_TMT_Num_InSetting != TMT_OFF)) // change from GAS_SWITCH_MOD to GAS_SWITCH_TMT		
+                    //if((GUI_GAS_SWITCH_Step != GAS_SWITCH_TMT)&&(GUI_TMT_Num_InSetting != TMT_OFF)) // change from GAS_SWITCH_MOD to GAS_SWITCH_TMT
                     if(GUI_GAS_SWITCH_Step != GAS_SWITCH_TMT)
                     {
                         GUI_GAS_SWITCH_Step = GAS_SWITCH_TMT; // To show TMT at GAS SWITCH page
@@ -5230,7 +5230,7 @@ uint16_t OPCODE_Matrix(DSX_OPCODE_t OldOpcode)
 
                 if(GasSwitchPO2_Stat()!=GAS_SWITCH_PO2_TOO_LOW)
                 {
-                    //if((GUI_GAS_SWITCH_Step != GAS_SWITCH_TMT)&&(GUI_TMT_Num_InSetting != TMT_OFF))// change from GAS_SWITCH_MOD to GAS_SWITCH_TMT	
+                    //if((GUI_GAS_SWITCH_Step != GAS_SWITCH_TMT)&&(GUI_TMT_Num_InSetting != TMT_OFF))// change from GAS_SWITCH_MOD to GAS_SWITCH_TMT
                     if((GUI_GAS_SWITCH_Step != GAS_SWITCH_TMT))
                     {
                         GUI_GAS_SWITCH_Step = GAS_SWITCH_TMT; // To show TMT at GAS SWITCH page
@@ -8028,7 +8028,7 @@ uint16_t OPCODE_Matrix(DSX_OPCODE_t OldOpcode)
             Gnss_WakeUp();
         else
             Gnss_On();
-        
+
         GnssGGA.Target_Distance = Gnss_Calc_Distance (GnssGGA.Longitude_DD, GnssGGA.Latitude_DD, GnssGGA.Longitude_Target_DD, GnssGGA.Latitude_Target_DD);
         GnssGGA.Target_Direction = Gnss_WayFinderBrearing (GnssGGA.Longitude_DD, GnssGGA.Latitude_DD, GnssGGA.Longitude_Target_DD, GnssGGA.Latitude_Target_DD);
 
@@ -8163,7 +8163,7 @@ uint16_t OPCODE_Matrix(DSX_OPCODE_t OldOpcode)
                 NewOpcode = S466_O2ANALYZER_CALIBRATE_NO_CELL_O2;       //S466A_O2ANALYZER_CALIBRATE_NO_O2_ANALYZER;
             }
             else if(O2_ADC_V_Calib > ((0.001*MFG_Calib.O2_Analyzer.O2_ADC_Offset) - 0.050)) {    // from R1006, "No O2 Analyzer" failure is checked against "The Theoretical Zero Point - 50 mV margin" = (O2_ADC_Offset mV - 50 mV)
-            //else if(O2_ADC_V_Calib > 1.95) {          //No O2 Cell Found
+                //else if(O2_ADC_V_Calib > 1.95) {          //No O2 Cell Found
                 NewOpcode = S466_O2ANALYZER_CALIBRATE_NO_CELL_O2;
             }
             else if(CellNewToDepletedFactor < 0.8) {    //O2 Cell Depleted (cell missing from chamber), or O2 Analyzer is NOT Connected (O2_Analyzer_Volt = 0.04 Volt with 2.7M resistor added acrose D3 diode)
@@ -9216,7 +9216,7 @@ uint8_t CheckTMTisDuplicate(TMT_NUM_t TMT_index, NVD_DIVEMODE_t * mode_linked, u
 
     * gas_linked = Flat_check;
     * mode_linked = mod_tmp;
-	
+
     return Flat_check;
 
 }

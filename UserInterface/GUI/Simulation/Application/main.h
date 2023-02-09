@@ -84,6 +84,7 @@
 #define ALARM_ENDPRESS_BAR        1         
 #define PASSCODE_ON        1         
 #define u16DiveTimeTotalSec        1         
+#define NVD_EEPROM_READ_TIMEOUT		1
 
 typedef enum
 {

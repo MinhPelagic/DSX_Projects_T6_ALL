@@ -1482,6 +1482,9 @@
     <ClCompile Include="..\Bitmaps\Register.c">
       <Filter>Application\DSX\Bitmaps</Filter>
     </ClCompile>
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Menu_DeviceSettings_Bluetooth DownloadData.c">
+      <Filter>Application\DSX\Source\OpcodeHandle</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config\GUIConf.h">

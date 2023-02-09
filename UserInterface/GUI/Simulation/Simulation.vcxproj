@@ -299,6 +299,7 @@
     <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveMode_SM_PageAlt5.c" />
     <ClCompile Include="..\OpcodeHandle\Dive Mode\DiveMode_SM_PageMain.c" />
     <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\ContextDeviceSettingsCfg.c" />
+    <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Menu_DeviceSettings_Bluetooth DownloadData.c" />
     <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Menu_DeviceSettings_Bluetooth.c" />
     <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Menu_DeviceSettings_Bluetooth_Cfg.c" />
     <ClCompile Include="..\OpcodeHandle\Menu\Device Settings\Menu_DeviceSettings_MainPage.c" />

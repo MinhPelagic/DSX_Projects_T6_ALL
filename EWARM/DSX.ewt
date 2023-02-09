@@ -3288,6 +3288,9 @@
                     <name>$PROJ_DIR$\..\UserInterface\GUI\OpcodeHandle\Menu\Set Date and Time\Menu_DateAndTime_TimeFormat_Cfg.c</name>
                 </file>
                 <file>
+                    <name>$PROJ_DIR$\..\UserInterface\GUI\OpcodeHandle\Menu\Device Settings\Menu_DeviceSettings_Bluetooth DownloadData.c</name>
+                </file>
+                <file>
                     <name>$PROJ_DIR$\..\UserInterface\GUI\OpcodeHandle\Menu\Device Settings\Menu_DeviceSettings_Bluetooth.c</name>
                 </file>
                 <file>

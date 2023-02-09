@@ -49,10 +49,10 @@ void DiveModeHandle_DisplayFO2(void)
     {
         /**********************************************************************************************************************
 
-            When switching from CC to OC or SM the best gas for current depth shall be the actual gas (gas with highest FO2, 
+            When switching from CC to OC or SM the best gas for current depth shall be the actual gas (gas with highest FO2,
                 while PO2 not exceeding OC Max PO2 (OC Deco PO2 after deco entry).
 
-            Keep original color if 
+            Keep original color if
             (1) Current Gas is the Best Gas, BestGasNumber == CurrGasNumber)
             (2) Other tank has the same FO2 to the Best Gase, fFO2[CurrGasNumber]==fFO2[BestGasNumber
             (3) No Best Gas can be found, BestGasNumber == 0

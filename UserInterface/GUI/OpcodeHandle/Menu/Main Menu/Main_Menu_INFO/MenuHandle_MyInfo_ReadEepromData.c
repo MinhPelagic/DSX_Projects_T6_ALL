@@ -36,8 +36,8 @@ void DisplayBmpFromEEPROM(bmpInforToDisplay_ts datInfo)
     L4X9_QSPI_Init();
     MT25QL512ABB_PowerDownRelease();
 
-    retry = NVD_FLASH_READ_TIMEOUT;    
-    do{} while((MT25QL512ABB_Read1I1O(datInfo.address, bmpSize, pDataOfBmp) != true) && (retry-- > 0));		// Timeout added from R1006     
+    retry = NVD_FLASH_READ_TIMEOUT;
+    do {} while((MT25QL512ABB_Read1I1O(datInfo.address, bmpSize, pDataOfBmp) != true) && (retry-- > 0));		// Timeout added from R1006
     if(retry <= 0)
     {
         ErrHandle_FLASH();

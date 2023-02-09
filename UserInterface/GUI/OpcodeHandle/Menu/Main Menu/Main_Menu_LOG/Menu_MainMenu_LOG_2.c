@@ -176,7 +176,7 @@ void IniOrClrScrFunc_S29_LOG_DATA2(void)
                     TMT_On = true;
             }
             else
-            {   
+            {
                 if(GAUGE_MODE)
                     sprintf(pStrRet, "TMT-%d", (i_u8));
                 else
@@ -186,7 +186,7 @@ void IniOrClrScrFunc_S29_LOG_DATA2(void)
                     else if(i_u8 == TMT_2)
                         sprintf(pStrRet, "TMT-R");
                     else
-                        sprintf(pStrRet, "TMT-%d", (i_u8));                    
+                        sprintf(pStrRet, "TMT-%d", (i_u8));
                     if((Log_Data_7[log01HighlightItem_i].TMT_On_Bits.Allbits >> (i_u8 - 1)) & 0x01)
                         TMT_On = true;
                 }

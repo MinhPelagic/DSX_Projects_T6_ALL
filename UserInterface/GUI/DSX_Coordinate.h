@@ -187,6 +187,8 @@ extern const CooGUI_tds* Pos_GPS_Page_Txt_04;
 extern const CooGUI_tds* Pos_GPS_Page_Txt_05;
 extern const CooGUI_tds* Pos_Bluetooth_PasscodeTxt;
 extern const CooGUI_tds* Pos_Bluetooth_PasscodeValue;
+extern const CooGUI_tds* Pos_Bluetooth_DownLoadData_01;
+extern const CooGUI_tds* Pos_Bluetooth_DownLoadData_02;
 extern const CooGUI_tds* Pos_Slates_Tittle;
 extern const CooGUI_tds* Pos_SurfClearToUpdate_1;
 extern const CooGUI_tds* Pos_SurfClearToUpdate_2;

@@ -1,0 +1,12 @@
+*.lst
+*.dep
+*.pbi
+*.o
+*.xcl
+*.ipch
+*.tlog
+UserInterface/GUI/Simulation/Output/
+EWARM/DSX_BTL/Obj/
+EWARM/DSX_BTL/Exe/
+EWARM/DSX_BTL/List/
+UserInterface/GUI/Simulation/.vs/

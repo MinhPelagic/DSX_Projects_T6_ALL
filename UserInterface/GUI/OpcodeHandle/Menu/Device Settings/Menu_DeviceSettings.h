@@ -120,4 +120,5 @@ extern void Transmitters_TMT_5_Context_Center(char* pStrRet);
 extern void Transmitters_TMT_6_Context_Center(char* pStrRet);
 const char* GetTextTransmitter_1_L(void);
 const char* GetTextTransmitter_2_R(void);
+void DispBleMainIcon(void);
 #endif

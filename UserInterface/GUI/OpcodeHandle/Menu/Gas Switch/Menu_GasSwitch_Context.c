@@ -112,7 +112,7 @@ GUI_COLOR GasSwitch_ColorDispRight(unsigned char gasNum)
         MaxLimit = SCUBA_Set.OCmax;
         MinLimit = SCUBA_Set.OCmin;
         DecoLimit = SCUBA_Set.OCdeco;
-    }  
+    }
     /*Base on the value of GAS -> Set the color*/
     if(DecoStatus)
     {
@@ -143,7 +143,7 @@ GUI_COLOR GasSwitch_ColorDispRight(unsigned char gasNum)
         {
             retColor = GUI_CYAN;
         }
-    }  
+    }
     return retColor;
 }
 /**/
