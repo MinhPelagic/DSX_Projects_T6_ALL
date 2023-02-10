@@ -25,7 +25,7 @@ Updated from R-1002 to R-1003 on 2002 10 12 by YeuShyr
 #define FW_REV                  0x000000001
 #define FW_VERSION_MAJ          (uint32_t)1
 #define FW_VERSION_MIN          (uint32_t)6
-#define FW_VERSION_BATCH        (uint32_t)13
+#define FW_VERSION_BATCH        (uint32_t)15
 /* Verion Build */
 #if defined ( BUILD_BTL )
     #define GET_FW_VERSION          /* (FW_VERSION_MAJ*1000+FW_VERSION_MIN) */ (FW_VERSION_MAJ*1000000+FW_VERSION_MIN*1000+FW_VERSION_BATCH)

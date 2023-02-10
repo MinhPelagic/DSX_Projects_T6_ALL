@@ -725,7 +725,8 @@ TMT_NUM_t SetGases_TMT_Num(TANK_NUM_t);
 NVD_status_t CheckIfGasEnabled(uint8_t gas);
 void ToRestoreBrightness(void);
 void ResetButtonMemory(void);
-bool REGISTER_Done(void);               // R1006 Added and orgnaized old similar code from then on
+bool REGISTER_Done(void);                       // R1006 Added for checking if Registration is done
+bool BLUETOOTH_DOWNLOAD_DATA_InProgress(void);  // R1006 Added and checking if BLE Download is in progress
 uint8_t find_CC_SP_Current(void);
 DSX_OPCODE_t ReturnToDiveMain(void);
 DSX_OPCODE_t ReturnToSurfMain(void);

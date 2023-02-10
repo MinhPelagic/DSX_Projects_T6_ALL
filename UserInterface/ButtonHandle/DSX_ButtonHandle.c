@@ -776,6 +776,18 @@ uint16_t OPCODE_Matrix(DSX_OPCODE_t OldOpcode)
             ResetButtonMemory();
         }
         break;
+        
+    case DEVICE_BLUETOOTH_DOWNLOAD_DATA:
+      
+        ResetButtonMemory();    // blocking any button input during the BLE Download
+        
+        /*stay here until Bluetooth Download is doen*/
+        if(!BLUETOOTH_DOWNLOAD_DATA_InProgress())
+        {
+            NewOpcode = S2_SURFACE_MAIN;       
+        }
+        break;        
+    
     case W2_WAIT_MESSAGE:
 
         NewOpcode = Opcode_Matrix( W2_WAIT_MESSAGE,       OldOpcode,              ReturnToMainPage(),          OldOpcode,              OldOpcode,       OldOpcode,              OldOpcode,              OldOpcode,              OldOpcode);
@@ -10841,6 +10853,14 @@ void ResetButtonMemory(void)
 bool REGISTER_Done(void)        // R1006 Added and orgnaized old similar code from then on
 {
     if(DEV_Rec.Reg.Reg_KEY == PASSCODE_ON)
+        return true;
+    else
+        return false;
+}
+
+bool BLUETOOTH_DOWNLOAD_DATA_InProgress(void) // R1006 Added and checking if BLE Download is in progress
+{
+    if((PROD_BLE_IS_USING_FLASH)&&(PROD_BLE_IS_CONNECTED))
         return true;
     else
         return false;

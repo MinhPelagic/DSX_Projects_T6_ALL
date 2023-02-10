@@ -2721,6 +2721,21 @@ void Ble_Handler (void)
                 Gnss_WakeUp();
             else
                 Gnss_On();
+            
+            // Read back EEPROM to update EEPROM Shadow RAM 
+            EE_SaveReq(EE_MFGCAL);
+            EE_SaveReq(EE_DEVREC);
+            EE_SaveReq(EE_USERSET);
+            EE_SaveReq(EE_SCUBASET);
+            EE_SaveReq(EE_TRIMIXSET);
+            EE_SaveReq(EE_FLASHMAP);
+            GUI_BRIGHTNESS_LV = BRIGHTNESS_LV;              // GUI Settings for BRIGHTNESS_LV
+            GUI_BRIGHTNESS_DIM_MODE = BRIGHTNESS_DIM_MODE;  // GUI Settings for BRIGHTNESS_DIM_MODE
+            GUI_BRIGHTNESS_DIM_TIME = BRIGHTNESS_DIM_TIME;  // GUI Settings for BRIGHTNESS_DIM_TIME
+            GUI_DIM_BRIGHT_LV = DIM_BRIGHT_LV;              // GUI Settings for DIM_BRIGHT_LV
+            GUI_LANG_Select = LANG_Select;                  // GUI Settings for LANG_Select
+            GUI_SWITCH_LCD_Flip = (NVD_status_t)SWITCH_LCD_Flip;          // GUI settings for LCD_Flip
+            ToRestoreBrightness();
         }
         isBleConnected_Pre = isBleConnected;
     }

@@ -164,7 +164,7 @@ void UI_App (void)
     {
         int32_t a, b;
 
-        GUI_Phase = 30;
+        GUI_Phase = 20;
 
         Update_SystemSupplyMonitor ( &SystemSupplyMonitor );
         if(SystemSupplyMonitor.Battery_Percentage <= BAT_NO_OPERATE_PERCENTAGE)
@@ -209,7 +209,7 @@ void UI_App (void)
         // Allow button pressing to stop showing ERRx GUI messages
         if((a - b) >= 0)
         {
-            GUI_Phase = 31;
+            GUI_Phase = 21;
             SystemStatus.ShowDiag = false;     // stop showing ERR GUIs
             GUI_Clear();
             DSX_Opcode = S2_SURFACE_MAIN;
@@ -217,28 +217,42 @@ void UI_App (void)
     }
     else if(!REGISTER_Done())
     {
-        GUI_Phase = 20;
+        GUI_Phase = 30;
         DSX_Opcode = REGISTER_SCREEN;
-        ToRestoreBrightness();
+        if(GUI_PrePhase != GUI_Phase)
+            ToRestoreBrightness();
+    }
+    else if(BLUETOOTH_DOWNLOAD_DATA_InProgress())
+    {
+        GUI_Phase = 40;
+        ResetButtonMemory();    // blocking any button input during the BLE Download, immediately after BLE_Connection is formed
+        if(GUI_PrePhase != GUI_Phase)
+        {  
+            ToRestoreBrightness();
+            SystemStatus.user_GUI_timestamp = MonotonicClock_s;
+        }
+        
+        if( ( MonotonicClock_s - SystemStatus.user_GUI_timestamp ) > 3 )        // start to display BLUETOOTH_DOWNLOAD_DATA GUI after several seconds of delay
+            DSX_Opcode = DEVICE_BLUETOOTH_DOWNLOAD_DATA;
     }
     else if( BatteryCharging() && (DSX_Opcode != B1_BATT_CHARGE) && ((pre_DSX_Opcode == 8192)||(pre_DSX_Opcode < 0)) )
     {
-        GUI_Phase = 40;
+        GUI_Phase = 50;
         DSX_Opcode = B1_BATT_CHARGE;
     }
     else if( BatteryCharging() && ShowChargingAfterNSec(10)
              && (pre_DSX_Opcode != B1_BATT_CHARGE) && (SystemStatus.BLE_status != BLE_HDL_CONNECT) )
     {
-        GUI_Phase = 50;
+        GUI_Phase = 60;
         if((DSX_Opcode != B1_BATT_CHARGE)||(pre_DSX_Opcode != B1_BATT_CHARGE))
             DSX_Opcode = B1_BATT_CHARGE;
     }
     else
     {
-        GUI_Phase = 60;
+        GUI_Phase = 70;
         if(SystemStatus.BLE_status == BLE_HDL_CONNECT)
         {
-            GUI_Phase = 61;
+            GUI_Phase = 71;
             // when BLE in connected, system gets out of B1_BATT_CHARGE GUI, and enter to Surface Main page
             if((DSX_Opcode == B1_BATT_CHARGE)&&(pre_DSX_Opcode == B1_BATT_CHARGE))
             {
@@ -5517,7 +5531,7 @@ bool CheckTheBluetoothPasscodeDisplay(void)
             }
             else
             {
-                /*Do Nothing*/
+                DSX_Opcode = DEVICE_BLUETOOTH_PASSCODE;
             }
 
             //******************************************************************

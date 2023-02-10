@@ -96,13 +96,13 @@ void Backlight_Init( void )
  ******************************************************************************/
 #define ES_CHIP_ADDRESS         0x72
 #define ES_CHIP_LEVELS          31
-#define ES_T_START              50
-#define ES_T_EOS                50
+#define ES_T_START              10
+#define ES_T_EOS                10
 
-#define ES_L0_HT                50
+#define ES_L0_HT                5
 #define ES_L0_LT                2*ES_L0_HT
 
-#define ES_L1_LT                50
+#define ES_L1_LT                5
 #define ES_L1_HT                2*ES_L1_LT
 
 void ES_send(uint8_t data)
@@ -174,11 +174,9 @@ void Backlight_Set( uint8_t level )
 {
   uint16_t lev = (uint16_t)level/10;
   uint16_t ChipLev = 0;
-  // const static uint8_t ChipLevArray[16]={0,  1,3,5,7,9, 11,13,15,17,20, 25,30,30,30,30};	// Old BRIGHTNESS LEVEL before 2022 03 25
   const static uint8_t ChipLevArray[16]={0,  1,3,5,7,9, 11,13,16,20,24, 30,30,30,30,30};      	// New BRIGHTNESS LEVEL
-  
-    //if(SystemStatus.BLE_status != BLE_HDL_CONNECT)
-    //{
+
+
         if (level == s_last_level) 
         {
           return;
@@ -197,7 +195,6 @@ void Backlight_Set( uint8_t level )
         {
           ChipLev = ChipLevArray[lev];
         }
-        
         
         if(DEV_Board())
         {
@@ -243,18 +240,29 @@ void Backlight_Set( uint8_t level )
               /* Wait ES Mode Time Window expires */
               us_delay(800);
               
-              __disable_irq();
-              ES_send(ES_CHIP_ADDRESS);
-                
-              //lev |= 0x40;
-              ES_send(ChipLev);
-              __enable_irq();
+             if( PROD_BLE_IS_CONNECTED )        // R1006 This pair of disable_irq and enable_irq does NOT work with LL_USART, so leave it outside of BLE_Connection
+             {
+                ES_send(ES_CHIP_ADDRESS);
+	     
+	        //lev |= 0x40;
+	        ES_send(ChipLev);
+             }
+             else
+             {
+             	__disable_irq();                // R1006  This pair of disable_irq and enable_irq does NOT work with LL_USART, so leave it outside of BLE_Connection
+             
+              	ES_send(ES_CHIP_ADDRESS);
+             
+              	//lev |= 0x40;
+              	ES_send(ChipLev);
+             
+              	__enable_irq();                 // R1006  This pair of disable_irq and enable_irq does NOT work with LL_USART, so leave it outside of BLE_Connection
+             }
+              
             }
         }
-        
+      
         Backlight_Val = lev * 10;
-    
-    //}
 }
 
 
@@ -280,19 +288,6 @@ uint8_t AutoBackLight(float lux)
     Low_BackLight = MFG_Calib.Low_BackLight;
     Med_BackLight = MFG_Calib.Med_BackLight;
     Bright_BackLight = MFG_Calib.Bright_BackLight;
-
-    
-
-//float ALS_Dark_Lux;           / 4-Byte float for ALS Dark Level Lux threshold value /
-// float ALS_Low_Lux;            / 4-Byte float for ALS Low Level Lux threshold value /
-// float ALS_Med_Lux;            / 4-Byte float for ALS Med Level Lux threshold value /
-// uint8_t Dark_BackLight;       / 1-Byte uint8 for ALS Dark Level's Brightness value /
-// uint8_t Low_BackLight;        / 1-Byte uint8 for ALS Low Level's Brightness value /
-// uint8_t Med_BackLight;        / 1-Byte uint8 for ALS Med Level's Brightness value /
-// uint8_t Bright_BackLight;     / 1-Byte uint8 for ALS Bright Level's Brightness value /
-
-
-
 
     if((Low_BackLight  == 0)||(Low_BackLight  == 0xff))/*init new eeprom here*/
     {

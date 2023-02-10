@@ -755,7 +755,7 @@ void BacklightManager (void)
     /* DO AUTO SENSOR LIGHT when AUTO Mode is selected */
     if(!((DSX_Opcode == DISPLAY_BRIGHTNESS_SET)||(DSX_Opcode == DISPLAY_AUTODIM__PERCENT)))
     {
-        if(((BRIGHTNESS_LV == 110)||(GUI_BRIGHTNESS_LV == 110))&&(DSX_Opcode!=B1_BATT_CHARGE)&&(SystemStatus.BLE_status != BLE_HDL_CONNECT))    // R1006 does NOT run LightSensorLuxReading while BLE Connected
+        if(((BRIGHTNESS_LV == 110)||(GUI_BRIGHTNESS_LV == 110))&&(DSX_Opcode!=B1_BATT_CHARGE))
         {
             /*anable auto BR*/        
             // BSL Brightness Control ===========================================================================================================================
@@ -861,9 +861,9 @@ void BacklightManager (void)
                     else if((SystemSupplyMonitor.Battery_Percentage <= YELLOW_BATT_THRESH)&&(YELLOW_BRIGHTNESS_LV<=GUI_BRIGHTNESS_LV))
                       Backlight_Set(YELLOW_BRIGHTNESS_LV);
                     else
-                      Backlight_Set(GUI_BRIGHTNESS_LV);
+                      Backlight_Set(BRIGHTNESS_LV);
             #else
-                    Backlight_Set(GUI_BRIGHTNESS_LV);
+                    Backlight_Set(BRIGHTNESS_LV);
             #endif
 
                     SystemStatus.backlight_act_timestamp = MonotonicClock_s;

@@ -49,3 +49,8 @@ void IniOrClrScrFunc_DEVICE_BLUETOOTH_DOWNLOAD_DATA(void)
     HandleDisplayTextWithMemdev(IteStat_Select, DownloadingText);
     HandleDisplayTextWithMemdev(IteStat_Select, DataText);
 }
+void UpdOrFlasFunc_DEVICE_BLUETOOTH_DOWNLOAD_DATA(void)
+{
+    HandleDisplayTextWithMemdev(IteStat_Flashing, DownloadingText);
+    HandleDisplayTextWithMemdev(IteStat_Flashing, DataText);
+}
