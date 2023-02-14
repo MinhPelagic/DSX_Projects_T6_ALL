@@ -880,7 +880,7 @@ void NVD_RAMTOTAL_to_ExtEEPROM (void)
   NVD_RAMBLOCK_to_ExtEEPROM(EE_RETB_DATA7);
 }
 
-void NVD_RAM_TOTAL_EE_SaveReq (void)
+void NVD_RAM_TOTAL_EE_SaveReq (void)    // R1006.6 Debugging Use Only, NOT for Product
 {
   //EE_SaveReq(EE_MFGCAL);
   EE_SaveReq(EE_DEVREC);
@@ -909,7 +909,7 @@ void NVD_RAM_TOTAL_EE_SaveReq (void)
   EE_SaveReq(EE_RETB_DATA7);
 }
 
-void NVD_EE_StressTestReq (void)
+void NVD_EE_StressTestReq (void)        // R1006.6 Debugging Use Only, NOT for Product
 {
   //EE_SaveReq(EE_MFGCAL);
   EE_SaveReq(EE_DEVREC);

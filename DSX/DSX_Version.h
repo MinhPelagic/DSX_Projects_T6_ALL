@@ -25,7 +25,7 @@ Updated from R-1002 to R-1003 on 2002 10 12 by YeuShyr
 #define FW_REV                  0x000000001
 #define FW_VERSION_MAJ          (uint32_t)1
 #define FW_VERSION_MIN          (uint32_t)6
-#define FW_VERSION_BATCH        (uint32_t)15
+#define FW_VERSION_BATCH        (uint32_t)17
 /* Verion Build */
 #if defined ( BUILD_BTL )
     #define GET_FW_VERSION          /* (FW_VERSION_MAJ*1000+FW_VERSION_MIN) */ (FW_VERSION_MAJ*1000000+FW_VERSION_MIN*1000+FW_VERSION_BATCH)
@@ -129,5 +129,37 @@ Updated from R-1002 to R-1003 on 2002 10 12 by YeuShyr
  *              48. Improved on Best Gas, Better Gas, and SWITCH GAS XX/XX 12/10
  *              49. Instead of using a constant PO2 = 1.6. this update opened up the MOD PO2 12/11
  *              50. Fixed the "Safety Stop Time being Frozen" issue.12/15
+ *
+ *      R-1.006: 2023/XX/XX XX:XX Firmware Update for production
+ *              1. Added "resp.RespCode = CMD_RESP_NORW;" for BLE Com returning correct status
+ *              2. Changed from ms_delay(uint32_t count) to ms_delay(int32_t count) to avoid unexpected loopback
+ *              3. Added some EEPROM address for better EE_SaveReq handling
+ *              4. Swap the locations for saving Reg.YY and Reg.DD on EEPROM
+ *              5. Added FLASH Err and EEPROM Err Counters for recording the error counts
+ *              6. Added some subroutines for Debugging Use Only, NOT for Product
+ *              7. Added ErrHandle_EE and ErrHandle_FLASH to record EEPROM Err Counting
+ *              8. Added I2C1_flag and I2C2_flag as the semaphores, 0: not busy: others: busy in communication
+ *              9. Added the time stamp recording the moment of this wakeup 
+ *              10. Improved BLE Access Code pops up ever time 
+ *              11. Added ms_delay(20) in St2Ble_PowerDown for better BLE Connection
+ *              12. Made GPS and Bluetooth ExClusive during the SLEEP Wakeup Initialization 
+ *              13. Removed any Bluetooth alarm if connection is successful
+ *              14. Changed from uint32_t to int32_t to avoid unexpected while loop lockup
+ *              15. Firmware is no longer working on earlier Development Board
+ *              16. Emergency Shutdown during Diving only when (MaintainanceError == true), NOT for FatalError
+ *              17. Removed MX_I2C2_Init from main.c since L4X9_I2C_Init already covers the same job
+ *              18. Added Bluetooth Error in main.c
+ *              19. Resuming Safety Stop feature after Decompression is completed (CCOC_DiveAlgo.c)
+ *              20. Reorganized 24CWxxX.c with better working logic
+ *              21. Speed Up Backlight_Set() and avoid __disable_irq() and __enable_irq() to work with BLE's USART Com, to avoid system crash
+ *              22. Collect possible SPI Com errors from FwUpdate.c 
+ *              23. Removed redundant ALS code from MX_I2C2_Init( ), do I2C2 initialization along with EEPROM from now on
+ *              24. Better organized OPT3001.c and OPT3001.h code for ALS
+ *              25. Use REGISTER_Done() to replace the old Reg_KEY checking, in Ambiental.c
+ *              26. Prevend SPI com lockup in GPS_WayFinder.c, Slates.c
+ *              27. Correct GnssStatus, GnssReqOn, GnssReqWake flags to make it work better for initialization and power consumption
+ *              28. Added NVD_Process_RAMBLOCK_to_ExtEEPROM in Tick1, Tick2, Tick3, Tick4 and Tick6
+ *              29. Added DEVICE_BLUETOOTH_DOWNLOAD_DATA Opcode for displaying DOWNLOADING DATA on GUI during FW Update (app.c and ble.c)
+ *              30. Added Register.bmp, updated Register.c; Updated LangTextString
  *
  *******************************************************************************************************************************************************************************************/

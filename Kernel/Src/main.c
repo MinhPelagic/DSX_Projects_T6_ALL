@@ -215,7 +215,7 @@ int main(void)
 
 
 //test light sensor
-//  MX_I2C2_Init();               // should be removed since L4X9_I2C_Init is supposed cover its job
+//  MX_I2C2_Init();               // R1006.17 should be removed since L4X9_I2C_Init is supposed cover its job
 
   OPT3001_Test();
 
@@ -247,13 +247,13 @@ int main(void)
 
   Retry = 10000;
   if(DEV_Board())
-    while(BLE_IS_USING_FLASH && (Retry-- > 0)){}        // R1006, added Bluetooth Error
+    while(BLE_IS_USING_FLASH && (Retry-- > 0)){}        // R1006.18, added Bluetooth Error
   else
-    while(PROD_BLE_IS_USING_FLASH && (Retry-- > 0)){}   // R1006, added Bluetooth Error
+    while(PROD_BLE_IS_USING_FLASH && (Retry-- > 0)){}   // R1006.18, added Bluetooth Error
   
   if(Retry <= 0)
   {
-      DEV_Rec.SystemErrorWarningBits.Bluetooth = true;  // R1006, if got stuck above, then issue an Bluetooth Error
+      DEV_Rec.SystemErrorWarningBits.Bluetooth = true;  // R1006.18, if got stuck above, then issue an Bluetooth Error
   }  
 
   // Initialize SPI module

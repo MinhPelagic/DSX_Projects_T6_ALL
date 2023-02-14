@@ -96,13 +96,13 @@ void Backlight_Init( void )
  ******************************************************************************/
 #define ES_CHIP_ADDRESS         0x72
 #define ES_CHIP_LEVELS          31
-#define ES_T_START              10
-#define ES_T_EOS                10
+#define ES_T_START              10			// R1006.21 Speed Up Backlight_Set()
+#define ES_T_EOS                10			// R1006.21 Speed Up Backlight_Set()
 
-#define ES_L0_HT                5
+#define ES_L0_HT                5			// R1006.21 Speed Up Backlight_Set()
 #define ES_L0_LT                2*ES_L0_HT
 
-#define ES_L1_LT                5
+#define ES_L1_LT                5			// R1006.21 Speed Up Backlight_Set()
 #define ES_L1_HT                2*ES_L1_LT
 
 void ES_send(uint8_t data)
@@ -240,7 +240,7 @@ void Backlight_Set( uint8_t level )
               /* Wait ES Mode Time Window expires */
               us_delay(800);
               
-             if( PROD_BLE_IS_CONNECTED )        // R1006 This pair of disable_irq and enable_irq does NOT work with LL_USART, so leave it outside of BLE_Connection
+             if( PROD_BLE_IS_CONNECTED )        // R1006.21 This pair of disable_irq and enable_irq does NOT work with LL_USART, so leave it outside of BLE_Connection
              {
                 ES_send(ES_CHIP_ADDRESS);
 	     
@@ -249,14 +249,14 @@ void Backlight_Set( uint8_t level )
              }
              else
              {
-             	__disable_irq();                // R1006  This pair of disable_irq and enable_irq does NOT work with LL_USART, so leave it outside of BLE_Connection
+             	__disable_irq();                // R1006.21  This pair of disable_irq and enable_irq does NOT work with LL_USART, so leave it outside of BLE_Connection
              
               	ES_send(ES_CHIP_ADDRESS);
              
               	//lev |= 0x40;
               	ES_send(ChipLev);
              
-              	__enable_irq();                 // R1006  This pair of disable_irq and enable_irq does NOT work with LL_USART, so leave it outside of BLE_Connection
+              	__enable_irq();                 // R1006.21  This pair of disable_irq and enable_irq does NOT work with LL_USART, so leave it outside of BLE_Connection
              }
               
             }

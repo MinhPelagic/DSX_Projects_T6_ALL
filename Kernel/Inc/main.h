@@ -104,8 +104,8 @@ typedef struct
   uint8_t BLE_PassCodeValidation;       /* Ble Passcode Validation 0: NotChecking, 1: Incorrect,  2: Correct */  
   bool BLE_ShutdownReq;                 /* Ble shutdown request */
     
-  uint8_t I2C1_flag;                    /* I2C1 communication semaphore, 0: not busy: others: busy in communication */
-  uint8_t I2C2_flag;                    /* I2C2 communication semaphore, 0: not busy: others: busy in communication */
+  uint8_t I2C1_flag;                    /* R1006.8, I2C1 communication semaphore, 0: not busy: others: busy in communication */
+  uint8_t I2C2_flag;                    /* R1006.8, I2C2 communication semaphore, 0: not busy: others: busy in communication */
   
   uint8_t Notification_type;            /* 0: NO; 1: Phone; 2: SMS */
   int32_t Notification_timestamp;       /* Notification Receive TimeStamp */
@@ -152,13 +152,13 @@ typedef struct
   
   int32_t GUI_Pause_timestamp;         /* TimeStamp of GUI Page Pause Time Stamp (automatic, NOT controlled by user) */
     /* Used to handle EE Data Savings */
-  uint32_t  NVD_EE_W_flag0;            /* The flag to Write some EE block(s) from 0x00000000 to 0x00000FFF */
+  uint32_t  NVD_EE_W_flag0;            /* R1006.9, The 4-Byte flag to Write some EE block(s) from 0x00000000 to 0x00000FFF */
   
   /* Used to handle Data Retention */
   bool NvdUpdateInProgress;   
 
   int32_t ButtonRebootReqTimestamp;
-  int32_t WakeUpTimestamp;              /* R1006 The time stamp recording the moment of this wakeup */
+  int32_t WakeUpTimestamp;              /* R1006.9 The time stamp recording the moment of this wakeup */
   bool system_reboot_request;
   
   bool DiagnosticReq;

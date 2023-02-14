@@ -40,7 +40,7 @@ int32_t g_NVDReadSize = 0;
 
 bool DataCrcError = false;
 
-bool isBleConnected_Pre = false;      // R1006 added for 
+bool isBleConnected_Pre = false;      // R1006 added for better BLE and GPS's intializations
 bool isBleConnected = false;
 /*
 int min( int a, int b)
@@ -823,9 +823,9 @@ void ProcessCmd(PPACKET * const pPacket)
         else
         {
           // Invalidate previouse Learned Parameters in Ram and EEPROM
-          DEV_Rec.MAX17262_BatteryLearned.valid = 0;          
+          DEV_Rec.MAX17262_BatteryLearned.valid = 0;
           
-          if(NVD_RAMBLOCK_to_ExtEEPROM(EE_DEVREC))
+          if(NVD_RAMBLOCK_to_ExtEEPROM(EE_DEVREC))	// R1006.1, check EEPROM Write and return status flag through BLE Com
           {
               // EEPROM Read Write NOT GOOD
               resp.RespCode = CMD_RESP_NORW;
@@ -1050,7 +1050,7 @@ void ProcessCmd(PPACKET * const pPacket)
         if(SystemStatus.O2_Analyzer_Stage == O2_ANALYZER_FO2_CHECK_DONE)
         {
             int8_t retry = NVD_EEPROM_READ_TIMEOUT;
-            do{}while( !EE24CWxxX_ReadNBytes(NVD_MFGCAL_LOC1, &EE_Block1, sizeof(MFG_Calib) ) && (retry-- > 0) );
+            do{}while( !EE24CWxxX_ReadNBytes(NVD_MFGCAL_LOC1, &EE_Block1, sizeof(MFG_Calib) ) && (retry-- > 0) );		//R1006.7 Added ErrHandle_EE and ErrHandle_FLASH to record EEPROM Err Counting
             if(retry <= 0)
             {
                 ErrHandle_EE();
@@ -1148,7 +1148,7 @@ void ProcessData(PPACKET *pPacket)
 
         L4X9_SetRtc (ClockData);
 
-        if(NVD_RAMBLOCK_to_ExtEEPROM(EE_USERSET))
+        if(NVD_RAMBLOCK_to_ExtEEPROM(EE_USERSET))		// R1006.10 with a correct BLE reply command
         {
             // EEPROM Read Write NOT GOOD
             resp.RespCode = CMD_RESP_NORW;
@@ -1325,7 +1325,7 @@ void ProcessData(PPACKET *pPacket)
 
     
         retry = NVD_FLASH_WRITE_TIMEOUT;
-        do{} while ((MT25QL512ABB_Erase4kSector(BOOTRECORD_ADDR) != true) && (retry-- > 0));		// Timeout added from R1006        
+        do{} while ((MT25QL512ABB_Erase4kSector(BOOTRECORD_ADDR) != true) && (retry-- > 0));		// Timeout added from R1006.5        
         if(retry <= 0)
         {
             ErrHandle_FLASH();
@@ -1390,6 +1390,7 @@ void ProcessData(PPACKET *pPacket)
         else if(IsMacIdAllZero(pPacket->Payload))
         {
             GeneratePassCode();         // comes here after Request Access
+            BLE_AcessInitDone = false;	//R1006, for displaying complete message if more-than-one-time display is needed
             // Send Response Done
             resp.RespCode = CMD_RESP_DONE;
             SendDataRsp(PFRAME_PKT_TYPE_RESP,
@@ -1399,7 +1400,7 @@ void ProcessData(PPACKET *pPacket)
         else if(!CheckMacId(pPacket->Payload))
         {
             GeneratePassCode();
-            BLE_AcessInitDone = false;	//R1006, for displaying complete message if more-than-one-time display is needed
+            BLE_AcessInitDone = false;	//R1006.10, for displaying complete message if more-than-one-time display is needed
             resp.RespCode = CMD_RESP_INVALIDPASSCODE;
             SendDataRsp(PFRAME_PKT_TYPE_RESP,
                         pPacket->Header.CmdRsp, &resp, sizeof(PCMD_RESP));
@@ -1409,7 +1410,7 @@ void ProcessData(PPACKET *pPacket)
         {
             AccessGranted = true;       // comes here if passcode is correct
             SystemStatus.BLE_PsShowReq = false;
-            BLE_AcessInitDone = false;	//R1006, for displaying complete message if more-than-one-time display is needed
+            BLE_AcessInitDone = false;	//R1006.10, for displaying complete message if more-than-one-time display is needed
             // Send Response Done
             resp.RespCode = CMD_RESP_DONE;
             SendDataRsp(PFRAME_PKT_TYPE_RESP,
@@ -1574,7 +1575,7 @@ bool FlashReadData(PPACKET * const pPkt)
             pPkt->Header.Cont = 0;
 
         retry = NVD_FLASH_READ_TIMEOUT;
-        do{} while ((MT25QL512ABB_Read1I1O( g_MemReadAddr, len, pPkt->Payload )!= true) && (retry-- > 0));		// Timeout added from R1006   
+        do{} while ((MT25QL512ABB_Read1I1O( g_MemReadAddr, len, pPkt->Payload )!= true) && (retry-- > 0));		// Timeout added from R1006.5   
         if(retry <= 0)
         {
             ErrHandle_FLASH();
@@ -1657,7 +1658,7 @@ bool FlashWriteCmd(PPACKET * const pPkt)
     for(uint16_t i = 0; i < cnt; i++ )
     {
         retry = NVD_EEPROM_WRITE_TIMEOUT;    
-        do{} while((MT25QL512ABB_Erase4kSector( g_MemWriteAddr + esize*i )!= true) && (retry-- > 0));		// Timeout added from R1006   
+        do{} while((MT25QL512ABB_Erase4kSector( g_MemWriteAddr + esize*i )!= true) && (retry-- > 0));		// Timeout added from R1006.5
         if(retry <= 0)
         {
             ErrHandle_FLASH();
@@ -1675,7 +1676,7 @@ bool FlashWriteData(PPACKET * const pPkt)
     if (g_MemWriteAddr >= (int32_t)EXFLASH_LOG)   // to protect BLE writing onto Negative Address NOR Boot Record at ExFLASH
     {
         retry = NVD_FLASH_WRITE_TIMEOUT;
-        do{} while((MT25QL512ABB_WriteNPage1I1O( (uint32_t)g_MemWriteAddr, pPkt->Header.PayloadLen, pPkt->Payload )!= true) && (retry-- > 0));		// Timeout added from R1006   
+        do{} while((MT25QL512ABB_WriteNPage1I1O( (uint32_t)g_MemWriteAddr, pPkt->Header.PayloadLen, pPkt->Payload )!= true) && (retry-- > 0));		// Timeout added from R1006.5   
         if(retry <= 0)
         {
             ErrHandle_FLASH();
@@ -2094,7 +2095,7 @@ bool NVDWriteData(PPACKET * const pPkt)
                   break;
             }
             
-            // the following condition output is modified from R1006, to add proper Bluetooth ACK (which was missing before R1006)
+            // the following condition output is modified from R1006, to add proper Bluetooth ACK (which was missing before R1006.5)
             if(!DataCrcError)
             {
                 if( !NVDSaveData(pPkt) )
@@ -2118,7 +2119,6 @@ bool NVDSaveData(PPACKET * const pPkt)
 
     case PELAGIC_PROTOCOL_CMD_WRITE_USER_SET:
         state = NVD_RAMBLOCK_to_ExtEEPROM (EE_USERSET);         // from R1006, do EE24CWxxX_ReadNBytes readback checking from inside of NVD_RAMBLOCK_to_ExtEEPROM
-        // ToRestoreBrightness();                               // from R1006, moved to the bottom of this function to apply for all other EE blocks saving
         break;
 
     case PELAGIC_PROTOCOL_CMD_WRITE_SCUBA_SET:
@@ -2341,7 +2341,7 @@ void St2Ble_PowerDown(void)
     
     SystemStatus.BLE_ShutdownReq = false;
     
-    ms_delay(20);     		// R1006 added for better connection after long SLEEP
+    ms_delay(20);     		// R1006.11 added for better connection after long SLEEP
 }
 
 void St2Ble_PowerOn(void)
@@ -2495,9 +2495,9 @@ bool CheckMacId(uint8_t *macid)
 void Ble_Reset(void)
 {
     ms_delay(1);
-    HAL_GPIO_WritePin(BT_RST_PORT, BT_RST_PIN, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(BT_RST_PORT, BT_RST_PIN, GPIO_PIN_RESET);		// R1006.11 for Ble_Reset
     ms_delay(3);
-    HAL_GPIO_WritePin(BT_RST_PORT, BT_RST_PIN, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(BT_RST_PORT, BT_RST_PIN, GPIO_PIN_SET);		// R1006.11 for Ble_Reset
     ms_delay(1);
     
     // Wait For BLE to Reset
@@ -2694,7 +2694,7 @@ void Ble_Handler (void)
     }
 
     /*******************************************************************************************************************************
-    //  R1006 Gnss_Sleep or Gnss_Off for better BLE Connection; needs to do Gnss_WakeUp or Gnss_On after BLE Conneciton is formed
+    //  R1006.12 Gnss_Sleep or Gnss_Off for better BLE Connection; needs to do Gnss_WakeUp or Gnss_On after BLE Conneciton is formed
     *******************************************************************************************************************************/
     if(PROD_BLE_IS_CONNECTED)
     {
@@ -2750,21 +2750,21 @@ void Ble_Handler (void)
         // Switch On BLE if not already On
         if(DEV_Board())
         {
-          if( BLE_IS_OFF && (BLUETOOTH_STAT == NVD_ON) )                
+          if( BLE_IS_OFF && (BLUETOOTH_STAT == NVD_ON) )     			// R1006.12           
           {
               St2Ble_PowerOn();
           }
           // Switch Off BLE if not used
-          if( (!BLE_IS_OFF) && ( (BLUETOOTH_STAT == NVD_OFF) ) )        
+          if( (!BLE_IS_OFF) && ( (BLUETOOTH_STAT == NVD_OFF) ) )   		// R1006.12
               St2Ble_PowerDown();
         }
         else
         {
-          if( PROD_BLE_IS_OFF && (BLUETOOTH_STAT == NVD_ON) )           
+          if( PROD_BLE_IS_OFF && (BLUETOOTH_STAT == NVD_ON) )     		// R1006.12      
               St2Ble_PowerOn();
           
           // Switch Off BLE if not used
-          if( (!PROD_BLE_IS_OFF) && ( (BLUETOOTH_STAT == NVD_OFF) ) )
+          if( (!PROD_BLE_IS_OFF) && ( (BLUETOOTH_STAT == NVD_OFF) ) )	// R1006.12
               St2Ble_PowerDown();
         }
 
@@ -2772,7 +2772,7 @@ void Ble_Handler (void)
         {
             Gnss_Off();
                 
-            if( (GnssStatus == GNSS_SLEEP) || (GnssStatus == GNSS_OFF) )      // Do St2Ble_PowerOn (including resetting Bluetooth) only after GnssStaus initialization is done
+            if( (GnssStatus == GNSS_SLEEP) || (GnssStatus == GNSS_OFF) )      // R10012012;	Do St2Ble_PowerOn (including resetting Bluetooth) only after GnssStaus initialization is done
             {
                 St2Ble_PowerOn();
                 SystemStatus.BLE_status = BLE_HDL_WAIT_BLE_ON_1;
@@ -2854,7 +2854,7 @@ void Ble_Handler (void)
 
             SystemStatus.System_ActiveReq = true;
             
-            DEV_Rec.SystemErrorWarningBits.Bluetooth = 0;       // R1006 Remove any Bluetooth alarm if connection is successful
+            DEV_Rec.SystemErrorWarningBits.Bluetooth = 0;       // R1006.13 Remove any Bluetooth alarm if connection is successful
         }
 
         break;
@@ -2906,24 +2906,6 @@ void Ble_Handler (void)
 
         break;
     }
-}
-
-
-/******************************************************************************************
- *
- *   @brief   A delay for waiting GPS's initialization before Bluetooth Initialization
- *
- *   bool BluetoothReadyToInit(void)
- *
- *   @note 0: No Go; 1: Start to Init BLE
- *
- ******************************************************************************************/
-bool BluetoothReadyToInit(void)
-{
-    if((DSX_Opcode == W1_WELCOME)||(DSX_Opcode == MANUFACTURE_SCREEN))
-        return false;
-    else
-        return true;
 }
 
 

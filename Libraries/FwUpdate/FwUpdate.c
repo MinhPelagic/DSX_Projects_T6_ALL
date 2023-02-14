@@ -241,7 +241,7 @@ void UpdateBootRec_FromBootloader(BootRecord_t *BootRec, uint8_t status)
   }
         
   retry = NVD_FLASH_WRITE_TIMEOUT;    
-  do{} while ((MT25QL512ABB_WriteNPage1I1O( BOOTRECORD_ADDR, sizeof(BootRecord_t), BootRec )!= true) && (retry-- > 0));		// Timeout added from R1006        
+  do{} while ((MT25QL512ABB_WriteNPage1I1O( BOOTRECORD_ADDR, sizeof(BootRecord_t), BootRec )!= true) && (retry-- > 0));		// Timeout added from R1006.22        
   if(retry <= 0)
   {
       ErrHandle_FLASH();
@@ -262,7 +262,7 @@ void GetBootRec_FromApp(BootRecord_t *BootRec)
   MT25QL512ABB_PowerDownRelease();
   
   retry = NVD_FLASH_READ_TIMEOUT;    
-  do{} while((MT25QL512ABB_Read1I1O( BOOTRECORD_ADDR, sizeof(BootRecord_t), BootRec)!= true) && (retry-- > 0));		// Timeout added from R1006        
+  do{} while((MT25QL512ABB_Read1I1O( BOOTRECORD_ADDR, sizeof(BootRecord_t), BootRec)!= true) && (retry-- > 0));		// Timeout added from R1006.22        
   if(retry <= 0)
   {
       ErrHandle_FLASH();
@@ -289,7 +289,7 @@ void UpdateBootRec_FromApp(uint8_t status)
   BootRecord_t BootRec;
   
   retry = NVD_FLASH_READ_TIMEOUT;    
-  do{} while((MT25QL512ABB_Read1I1O( BOOTRECORD_ADDR, sizeof(BootRecord_t), &BootRec)!= true) && (retry-- > 0));		// Timeout added from R1006        
+  do{} while((MT25QL512ABB_Read1I1O( BOOTRECORD_ADDR, sizeof(BootRecord_t), &BootRec)!= true) && (retry-- > 0));		// Timeout added from R1006.22        
   if(retry <= 0)
   {
       ErrHandle_FLASH();
@@ -311,7 +311,7 @@ void UpdateBootRec_FromApp(uint8_t status)
   }
 
   retry = NVD_FLASH_WRITE_TIMEOUT;    
-  do{} while ((MT25QL512ABB_WriteNPage1I1O( BOOTRECORD_ADDR, sizeof(BootRecord_t), &BootRec )!= true) && (retry-- > 0));		// Timeout added from R1006        
+  do{} while ((MT25QL512ABB_WriteNPage1I1O( BOOTRECORD_ADDR, sizeof(BootRecord_t), &BootRec )!= true) && (retry-- > 0));		// Timeout added from R1006.22        
   if(retry <= 0)
   {
       ErrHandle_FLASH();
@@ -338,7 +338,7 @@ bool IsFwOnExFlashGood(BootRecord_t BootRec)
   while (length < BootRec.FwLength)
   {
     retry = NVD_FLASH_READ_TIMEOUT;
-    do{} while((MT25QL512ABB_Read1I1O( BootRec.FwAddress+length, 256, fwchunk)!= true) && (retry-- > 0));		// Timeout added from R1006        
+    do{} while((MT25QL512ABB_Read1I1O( BootRec.FwAddress+length, 256, fwchunk)!= true) && (retry-- > 0));		// Timeout added from R1006.22        
     if(retry <= 0)
     {
         ErrHandle_FLASH();

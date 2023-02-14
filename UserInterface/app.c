@@ -5524,6 +5524,7 @@ bool CheckTheBluetoothPasscodeDisplay(void)
                 {
                     PCode = (SystemStatus.BLE_PassCode[i]-0x30)+(PCode*10);
                 }
+                BLE_AcessInitDone=true;
                 //Passcode_Number(DispInitial, PCode);
 
                 //PasscodeExpiredTime_u8 = (BluetoothDisplayTimeOut - 20);   // force out in 3 seconds after correct
@@ -5539,8 +5540,8 @@ bool CheckTheBluetoothPasscodeDisplay(void)
     }
     else
     {
-        //SystemStatus.BLE_PsShowReq = false; /*Reset the trigger -> Display once*/
-        //BLE_AcessInitDone = false;
+        SystemStatus.BLE_PsShowReq = false; /*Reset the trigger -> Display once*/
+        BLE_AcessInitDone = false;
         //DSX_Opcode = S2_SURFACE_MAIN;
     }
 

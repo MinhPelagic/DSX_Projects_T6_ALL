@@ -57,7 +57,7 @@
 #define EE_RETB_DATA6   0x36       // to retain 256 Bytes real-time algo Data
 #define EE_RETB_DATA7   0x37       // to retain 256 Bytes real-time algo Data  
 
-#define EE_RETA0   0x08       // to retain 256 Bytes SysTime, RTC Time, Setting Data       
+#define EE_RETA0   0x08       // to retain 256 Bytes SysTime, RTC Time, Setting Data 	// R1006.2 added for better EE_SaveReq handling
 #define EE_RETA1   0x09       // to retain 256 Bytes real-time algo Data
 #define EE_RETA2   0x0A       // to retain 256 Bytes real-time algo Data
 #define EE_RETA3   0x0B       // to retain 256 Bytes real-time algo Data
@@ -66,7 +66,7 @@
 #define EE_RETA6   0x0E       // to retain 256 Bytes real-time algo Data
 #define EE_RETA7   0x0F       // to retain 256 Bytes real-time algo Data
 
-#define EE_RETB0   0x10       // to retain 256 Bytes SysTime, RTC Time, Setting Data       
+#define EE_RETB0   0x10       // to retain 256 Bytes SysTime, RTC Time, Setting Data	// R1006 added for better EE_SaveReq handling
 #define EE_RETB1   0x11       // to retain 256 Bytes real-time algo Data
 #define EE_RETB2   0x12       // to retain 256 Bytes real-time algo Data
 #define EE_RETB3   0x13       // to retain 256 Bytes real-time algo Data
@@ -75,7 +75,7 @@
 #define EE_RETB6   0x16       // to retain 256 Bytes real-time algo Data
 #define EE_RETB7   0x17       // to retain 256 Bytes real-time algo Data   
    
-// for Delayed Proces RAM to EE Block Saving
+// for Delayed Proces RAM to EE Block Saving		// R1006 added for better EE_SaveReq handling
 #define EE_MFGCAL_bit       (0x00000001<<EE_MFGCAL)
 #define EE_DEVREC_bit       (0x00000001<<EE_DEVREC)
 #define EE_USERSET_bit      (0x00000001<<EE_USERSET)
@@ -302,7 +302,7 @@ typedef struct
 typedef struct
 {
     uint8_t Reg_KEY;    // Device Register ENABLED key
-    uint8_t Reg_DD;     // Device Register completed year
+    uint8_t Reg_DD;     // Device Register completed year		// R1006 Location Correction for saving Reg.YY and Reg.DD
     uint8_t Reg_MM;     // Device Register completed month
     uint8_t Reg_YY;     // Device Register completed day
 }DeviceRegister_t;
@@ -528,8 +528,8 @@ typedef struct
   float O2_Analyzer_V2Pct_Offset;       /* 4-Byte O2 Analyzer V-to-Pct curve-fitting Offset */
   
   uint32_t ReservedF8;                  /* 4-Byte Reserved */
-  uint8_t FLASH_ErrCnt;                 /* 1-Byte FLASH Error Cnt */
-  uint8_t EE_ErrCnt;                    /* 1-Byte FLASH Error Cnt */
+  uint8_t FLASH_ErrCnt;                 /* 1-Byte FLASH Error Cnt */		// R1006 added FLASH Err Counting and Recording
+  uint8_t EE_ErrCnt;                    /* 1-Byte EEPROM Error Cnt */		// R1006 added EEPROM Err Counting and Recording
   /* CRC Block Data */
   /* Updated only befroe storing on External Falsh memory */
   uint8_t CRC_MSB;
@@ -729,7 +729,7 @@ typedef enum {
     ALARM_Reserved57,
     ALARM_Reserved58,
     ALARM_Reserved59,
-    ALARM_MemoryERR,
+    ALARM_MemoryERR,			// R1006 added Memory Err Counting and Recording 
     ALARM_SystemERR,
     ALARM_TMT_LowBattWarning,
     ALARM_TMT_LowBattAlarm,
@@ -2598,12 +2598,12 @@ void EE_SaveReq (uint8_t);
 /*******************************************************************************
  * @brief   Request to Save all NVD Data in RAM to ExtEEPROM
  ******************************************************************************/
-void NVD_RAM_TOTAL_EE_SaveReq (void);
+void NVD_RAM_TOTAL_EE_SaveReq (void);   // R1006 Debugging Use Only, NOT for Product
 
 /*******************************************************************************
  * @brief   Request to EE Stress Test
  ******************************************************************************/
-void NVD_EE_StressTestReq (void);
+void NVD_EE_StressTestReq (void);       // R1006 Debugging Use Only, NOT for Product
 
 /*******************************************************************************
  * @brief   Store one NVD Data Block in RAM to ExtEEPROM
@@ -2613,14 +2613,14 @@ bool NVD_RAMBLOCK_to_ExtEEPROM (uint16_t);
 /*******************************************************************************
  * @brief   Delayed Process for flagged NVD Data in RAM to ExtEEPROM in Tick-0
  ******************************************************************************/
-uint32_t NVD_Process_RAMBLOCK_to_ExtEEPROM (uint32_t);
+uint32_t NVD_Process_RAMBLOCK_to_ExtEEPROM (uint32_t);	// R1006, uses 4-Byte Address instead of 2-Byte
 
 /*******************************************************************************
  * @brief   Stores only the NVD Data Blocks that are different in ExtEEPROM.
  *          This routnine is wxecuted over more calls.
  *          Returns true when all blocks have been updated.
  ******************************************************************************/
-bool NVD_DataRetention_RAM_to_ExtEEPROM (void);
+bool NVD_DataRetention_RAM_to_ExtEEPROM (void);			// R1006, changed name from NVD_RAM_to_ExtEEPROM to NVD_DataRetention_RAM_to_ExtEEPROM
 
 /*******************************************************************************
  * @brief   UseRETAorB, to find which one is the newer copy RET_A or RET_B
@@ -2707,14 +2707,14 @@ void PatchR1006(void);
     Error Handle for EEPROM Error
 
 *******************************************************************************/
-void ErrHandle_EE(void);
+void ErrHandle_EE(void);	// R1006, to handle EE Err
 
 /*******************************************************************************
 
     Error Handle for ExFLASH Error
 
 *******************************************************************************/
-void ErrHandle_FLASH(void);
+void ErrHandle_FLASH(void);	// R1006, to handle FLASH Err
 
 /*******************************************************************************
  * @brief   GLOBAL Variables

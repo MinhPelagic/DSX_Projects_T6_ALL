@@ -358,11 +358,11 @@ void SystemDiagnostics (void)
 
         //------------------------------------------------------------------------------
         // System Error 2: EEPROM
-        if((Dive_Info.Status!=AMB_DIVEINFO_DIVE)&&(Dive_Info.Status!=AMB_DIVEINFO_AFTERDIVE)) // Do NOT handle Memory Error during dive, Added from R1006 ----------
+        if((Dive_Info.Status!=AMB_DIVEINFO_DIVE)&&(Dive_Info.Status!=AMB_DIVEINFO_AFTERDIVE)) // Do NOT handle Memory Error during dive, Added from R1006.5 ----------
         {            
             Retry = 0;
             while ( !EE24CWxxX_Test( 0x3F00, 256 ) && Retry++ < 3) {};
-            if((Retry >= 3)&&(SystemStatus.Demo_On == false)||(DEV_Rec.SystemErrorWarningBits.Eeprom == true))
+            if((Retry >= 3)&&(SystemStatus.Demo_On == false))   // ||(DEV_Rec.SystemErrorWarningBits.Eeprom == true)), commented out in R1006
             {
                 DEV_Rec.SystemErrorWarningBits.Eeprom = 1;
 
@@ -373,7 +373,7 @@ void SystemDiagnostics (void)
         }
         //------------------------------------------------------------------------------
         // System Error 3: ExFlash
-        if((Dive_Info.Status!=AMB_DIVEINFO_DIVE)&&(Dive_Info.Status!=AMB_DIVEINFO_AFTERDIVE)) // Do NOT handle Memory Error during dive, Added from R1006 ----------
+        if((Dive_Info.Status!=AMB_DIVEINFO_DIVE)&&(Dive_Info.Status!=AMB_DIVEINFO_AFTERDIVE)) // Do NOT handle Memory Error during dive, Added from R1006.5 ----------
         {
             uint8_t id = 0;
             uint8_t type = 0;
@@ -499,7 +499,7 @@ void SystemDiagnostics (void)
         //------------------------------------------------------------------------------
         // System Error 18: FuelGauge
         uint16_t stat;
-        int16_t retry = NVD_EEPROM_WRITE_TIMEOUT;
+        int16_t retry = NVD_EEPROM_WRITE_TIMEOUT;		// R1006, use a constant
         while((MAX17262_ReadRegister (MAX17262_STATUS, &stat) == false) && (retry-- > 0))
         {
         }
@@ -526,7 +526,7 @@ void SystemDiagnostics (void)
         {
             if( (Dive_Info.Status==AMB_DIVEINFO_DIVE) || (Dive_Info.Status==AMB_DIVEINFO_AFTERDIVE) )
             {
-                if(MaintainanceError == true)   // R1006 Shutdown during Diving only when (MaintainanceError == true), NOT for FatalError
+                if(MaintainanceError == true)   // R1006.16 Shutdown during Diving only when (MaintainanceError == true), NOT for FatalError
                 {  
                     /* For dive data backup prior to emergency Automatic Shutdown */
                     EmergencyEndOfDiveBackupAndShutdown();
@@ -534,7 +534,7 @@ void SystemDiagnostics (void)
             }
             else
             {
-                // R1006 when back to Surface, shutdown system for (FatalError || MaintainanceError) 
+                // R1006.16 when back to Surface, shutdown system for (FatalError || MaintainanceError) 
                 /* For Surface mode emergency Automatic Shutdown */
                 EmergencySurfaceShutdown();
             }

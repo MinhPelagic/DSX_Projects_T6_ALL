@@ -38,6 +38,7 @@ void MX_I2C2_Init(void)
   /* USER CODE BEGIN I2C2_Init 1 */
 
   /* USER CODE END I2C2_Init 1 */
+// R1006.23 Removed redundant ALS code from MX_I2C2_Init( )
 //  hi2c2.Instance = I2C2;
 //  hi2c2.Init.Timing = 0x307075B1;
   hi2c2.Init.OwnAddress1 = 0;   // 0xFFFF;

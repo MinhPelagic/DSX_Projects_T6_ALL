@@ -1099,7 +1099,7 @@ void ms_LP_delay (uint32_t count)
       || (TIM3->CR1 & TIM_CR1_CEN)                              // for Buzzer ON
       || (TIM8->CR1 & TIM_CR1_CEN)                              // for Vibrator ON
       || ((EcData.Status == COMPASS_CALIBRATING)||(DSX_Opcode == C9_COMPASS_PROCESSING))        // for Compass ON
-      || ((GnssStatus==GNSS_ON)||(GnssReqOn==true)||(GnssReqWake==true)) )      // for GPS ON
+      || ((GnssStatus==GNSS_ON)||(GnssReqOn==true)||(GnssReqWake==true)) )      // R1006.12 for GPS and BLE to be initialized more smoothly
     {
         // Wait to complete any comunication
         // ms_delay(1);	// for Debugging use only, NOT for product
@@ -1145,12 +1145,12 @@ void ms_LP_delay (uint32_t count)
  *  Max value of ticks to be load in LOAD register is 0x00FFFFFF.
  *
  * @param[in]
- *      uint32_t count : number of milliseconds to wait. Max Value: 0x7FFFFFFF
+ *      int32_t count : number of milliseconds to wait. Max Value: 0x7FFFFFFF
  *
  ******************************************************************************/
-void ms_delay (int32_t count)   // from R1006, changed from uint32_t to int32_t to avoid unexpected while loop lockup
+void ms_delay (int32_t count)   // from R1006.14, changed from uint32_t to int32_t to avoid unexpected while loop lockup
 {
-  while (count-- > 0)
+  while (count-- > 0)			// from R1006.14, changed from uint32_t to int32_t to avoid unexpected while loop lockup
     us_delay(1000);
 }
 
@@ -1267,7 +1267,7 @@ void HAL_Delay (__IO uint32_t count)
 bool DEV_Board(void)
 {
 #ifdef DEV_BOARD_2020_IN_USE  
-  return HAL_GPIO_ReadPin(BOARD_DETECT_PORT, BOARD_DETECT_PIN);         //modified from R1006, Firmware does not work at Old Model of Development Board made in 2019~2020
+  return HAL_GPIO_ReadPin(BOARD_DETECT_PORT, BOARD_DETECT_PIN);         //modified from R1006.15, Firmware does not work at Old Model of Development Board made in 2019~2020
 #else
   return false;
 #endif

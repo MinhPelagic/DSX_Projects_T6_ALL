@@ -412,15 +412,4 @@ bool Ble_RamInit (void);
  ******************************************************************************/
 void Ble_Handler (void);
 
-   /******************************************************************************************
- *
- *   @brief   A delay for waiting GPS's initialization before Bluetooth Initialization
- *
- *   bool BluetoothReadyToInit(void)
- *
- *   @note 0: No Go; 1: Start to Init BLE
- *
- ******************************************************************************************/
-bool BluetoothReadyToInit(void);
-
 #endif //_L4X9_BLE_H_

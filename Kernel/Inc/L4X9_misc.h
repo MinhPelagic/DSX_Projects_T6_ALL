@@ -192,10 +192,10 @@ void ms_LP_delay (uint32_t count);
  *  Max value of ticks to be load in LOAD register is 0x00FFFFFF.
  *
  * @param[in]
- *      uint32_t count : number of milliseconds to wait. Max Value: 0xFFFFFFFF
+ *      int32_t count : number of milliseconds to wait. Max Value: 0x7FFFFFFF
  *
  ******************************************************************************/
-void ms_delay (int32_t count);
+void ms_delay (int32_t count);	// from R1006.2, changed from uint32_t to int32_t to avoid unexpected while loop lockup
 
 /******************************************************************************
  * @brief Microsecond Delay Blocking Function
