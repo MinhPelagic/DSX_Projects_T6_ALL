@@ -231,7 +231,7 @@ void MainTask(void)
 	GUI_LANG_LoadTextEx(_GetData, (void*)&StrLang_Select[LANGUAGE], LANGUAGE);
 	GUI_LANG_SetLang(LANGUAGE);
 	GUI_UC_SetEncodeUTF8();
-	AsssignedCoordinated(0);
+	AsssignedCoordinated(1);
 	TTF_CreateFontSequence(FontSize_General); /*Initlal the font engine -> Surface*/
 	/*Set var button to simulate*/
 	Key_M.Timer = KEYPRESS_TIMOUT;

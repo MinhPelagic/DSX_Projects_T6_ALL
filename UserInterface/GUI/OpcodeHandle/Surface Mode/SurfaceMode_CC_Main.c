@@ -63,7 +63,7 @@ void UpdOrFlasFunc_S2_SURFACE_MAIN(void)
     Display_Battery_Surface((void*) &pDataSurfBatt);
     /*Check display in bottom*/
     SurfaceMode_CC_MainPage_CheckDisplayBottom();
-    
+
     //============================== TEST ONLY
     HandleDisplayTextWithMemdev(IteStat_ClearThenSelect, SurfaceMode_Desat_Value);
 

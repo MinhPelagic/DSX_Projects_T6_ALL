@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\Users\YWu\OneDrive - Pelagic Pressure Systems\Documents\GitHub\DSX_Projects_T5_DT_PT\EWARM\settings\DSX.DSX.general.xcl" --backend -f "C:\Users\YWu\OneDrive - Pelagic Pressure Systems\Documents\GitHub\DSX_Projects_T5_DT_PT\EWARM\settings\DSX.DSX.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\Users\ducth\Downloads\DSX_Projects_T6_ALL\EWARM\settings\DSX.DSX.general.xcl" --backend -f "C:\Users\ducth\Downloads\DSX_Projects_T6_ALL\EWARM\settings\DSX.DSX.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\Users\YWu\OneDrive - Pelagic Pressure Systems\Documents\GitHub\DSX_Projects_T5_DT_PT\EWARM\settings\DSX.DSX.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\YWu\OneDrive - Pelagic Pressure Systems\Documents\GitHub\DSX_Projects_T5_DT_PT\EWARM\settings\DSX.DSX.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\Users\ducth\Downloads\DSX_Projects_T6_ALL\EWARM\settings\DSX.DSX.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\ducth\Downloads\DSX_Projects_T6_ALL\EWARM\settings\DSX.DSX.driver.xcl" 
 
 @echo off 
 :end

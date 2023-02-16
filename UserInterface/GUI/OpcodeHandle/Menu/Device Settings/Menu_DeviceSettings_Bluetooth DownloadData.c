@@ -8,7 +8,7 @@
 #include "L4X9_includes.h"
 #include "ContextDeviceSettingsCfg.h"
 #include "Menu_DeviceSettings.h"
-/*Passcode Text*/
+/*Downloading Text*/
 static void DownloadingText_Context(char* pStrRet)
 {
     strcpy(pStrRet, GUI_LANG_GetText(TxtStr_DOWNLOADING));

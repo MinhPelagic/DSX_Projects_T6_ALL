@@ -85,6 +85,8 @@
 #define PASSCODE_ON        1         
 #define u16DiveTimeTotalSec        1         
 #define NVD_EEPROM_READ_TIMEOUT		1
+#define PROD_BLE_IS_USING_FLASH		1
+#define PROD_BLE_IS_CONNECTED		1
 
 typedef enum
 {

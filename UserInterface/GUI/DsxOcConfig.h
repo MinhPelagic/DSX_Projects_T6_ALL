@@ -1018,7 +1018,7 @@ void IniOrClrScrFunc_DEVICE_BLUETOOTH_PASSCODE(void);
 void UpdOrFlasFunc_DEVICE_BLUETOOTH_PASSCODE(void);
 /*1. Clear or Initilal screen for  DEVICE_BLUETOOTH_DOWNLOAD_DATA operation*/
 void IniOrClrScrFunc_DEVICE_BLUETOOTH_DOWNLOAD_DATA(void);
-/*1.3 Flashing or keep update content of items DEVICE_BLUETOOTH_DOWNLOAD_DATA operation*/
+/*1.3 Flashing or keep update content of items DEVICE_BLUETOOTH_DOWNLOAD_DATA */
 void UpdOrFlasFunc_DEVICE_BLUETOOTH_DOWNLOAD_DATA(void);
 /*1. Clear or Initilal screen for  RESETSETTINGS_S1 operation*/
 void IniOrClrScrFunc_RESETSETTINGS_S1(void);

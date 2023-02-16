@@ -776,18 +776,18 @@ uint16_t OPCODE_Matrix(DSX_OPCODE_t OldOpcode)
             ResetButtonMemory();
         }
         break;
-        
+
     case DEVICE_BLUETOOTH_DOWNLOAD_DATA:
-      
+
         ResetButtonMemory();    // blocking any button input during the BLE Download
-        
+
         /*stay here until Bluetooth Download is doen*/
         if(!BLUETOOTH_DOWNLOAD_DATA_InProgress())
         {
-            NewOpcode = S2_SURFACE_MAIN;       
+            NewOpcode = S2_SURFACE_MAIN;
         }
-        break;        
-    
+        break;
+
     case W2_WAIT_MESSAGE:
 
         NewOpcode = Opcode_Matrix( W2_WAIT_MESSAGE,       OldOpcode,              ReturnToMainPage(),          OldOpcode,              OldOpcode,       OldOpcode,              OldOpcode,              OldOpcode,              OldOpcode);

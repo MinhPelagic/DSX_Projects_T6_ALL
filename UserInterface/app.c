@@ -227,11 +227,11 @@ void UI_App (void)
         GUI_Phase = 40;
         ResetButtonMemory();    // blocking any button input during the BLE Download, immediately after BLE_Connection is formed
         if(GUI_PrePhase != GUI_Phase)
-        {  
+        {
             ToRestoreBrightness();
             SystemStatus.user_GUI_timestamp = MonotonicClock_s;
         }
-        
+
         if( ( MonotonicClock_s - SystemStatus.user_GUI_timestamp ) > 3 )        // start to display BLUETOOTH_DOWNLOAD_DATA GUI after several seconds of delay
             DSX_Opcode = DEVICE_BLUETOOTH_DOWNLOAD_DATA;
     }

@@ -662,47 +662,47 @@ static const CooGUI_tds Pos_DeviceSett_Transmitt_Set_TMT_SN_Digit_6_Flipped = {2
 const CooGUI_tds* Pos_DeviceSett_Transmitt_Set_TMT_SN_Digit_6;
 /*Pos_GPS_Icon portion*/
 static const CooGUI_tds Pos_GPS_Icon_Normal = {160,47,128,15,64,105,192,120};
-static const CooGUI_tds Pos_GPS_Icon_Flipped = {160,71,128,15,64,105,192,120};
+static const CooGUI_tds Pos_GPS_Icon_Flipped = {160,47,128,15,64,105,192,120};
 const CooGUI_tds* Pos_GPS_Icon;
 /*Pos_GPS_Page_Txt_00 portion*/
 static const CooGUI_tds Pos_GPS_Page_Txt_00_Normal = {160,60,0,60,320,28,320,88};
-static const CooGUI_tds Pos_GPS_Page_Txt_00_Flipped = {160,84,0,84,320,28,320,112};
+static const CooGUI_tds Pos_GPS_Page_Txt_00_Flipped = {160,60,0,60,320,28,320,88};
 const CooGUI_tds* Pos_GPS_Page_Txt_00;
 /*Pos_GPS_Page_Txt_01 portion*/
 static const CooGUI_tds Pos_GPS_Page_Txt_01_Normal = {160,88,0,88,320,28,320,116};
-static const CooGUI_tds Pos_GPS_Page_Txt_01_Flipped = {160,112,0,112,320,28,320,140};
+static const CooGUI_tds Pos_GPS_Page_Txt_01_Flipped = {160,88,0,88,320,28,320,116};
 const CooGUI_tds* Pos_GPS_Page_Txt_01;
 /*Pos_GPS_Page_Txt_02 portion*/
 static const CooGUI_tds Pos_GPS_Page_Txt_02_Normal = {160,116,0,116,320,28,320,144};
-static const CooGUI_tds Pos_GPS_Page_Txt_02_Flipped = {160,140,0,140,320,28,320,168};
+static const CooGUI_tds Pos_GPS_Page_Txt_02_Flipped = {160,116,0,116,320,28,320,144};
 const CooGUI_tds* Pos_GPS_Page_Txt_02;
 /*Pos_GPS_Page_Txt_03 portion*/
 static const CooGUI_tds Pos_GPS_Page_Txt_03_Normal = {160,144,0,144,320,28,320,172};
-static const CooGUI_tds Pos_GPS_Page_Txt_03_Flipped = {160,168,0,168,320,28,320,196};
+static const CooGUI_tds Pos_GPS_Page_Txt_03_Flipped = {160,144,0,144,320,28,320,172};
 const CooGUI_tds* Pos_GPS_Page_Txt_03;
 /*Pos_GPS_Page_Txt_04 portion*/
 static const CooGUI_tds Pos_GPS_Page_Txt_04_Normal = {160,172,0,172,320,28,320,200};
-static const CooGUI_tds Pos_GPS_Page_Txt_04_Flipped = {160,196,0,196,320,28,320,224};
+static const CooGUI_tds Pos_GPS_Page_Txt_04_Flipped = {160,172,0,172,320,28,320,200};
 const CooGUI_tds* Pos_GPS_Page_Txt_04;
 /*Pos_GPS_Page_Txt_05 portion*/
 static const CooGUI_tds Pos_GPS_Page_Txt_05_Normal = {160,200,0,200,320,28,320,228};
-static const CooGUI_tds Pos_GPS_Page_Txt_05_Flipped = {160,224,0,224,320,28,320,252};
+static const CooGUI_tds Pos_GPS_Page_Txt_05_Flipped = {160,200,0,200,320,28,320,228};
 const CooGUI_tds* Pos_GPS_Page_Txt_05;
 /*Pos_Bluetooth_PasscodeTxt portion*/
 static const CooGUI_tds Pos_Bluetooth_PasscodeTxt_Normal = {160,115,85,115,150,25,235,140};
-static const CooGUI_tds Pos_Bluetooth_PasscodeTxt_Flipped = {160,139,85,115,150,25,235,140};
+static const CooGUI_tds Pos_Bluetooth_PasscodeTxt_Flipped = {160,115,85,115,150,25,235,140};
 const CooGUI_tds* Pos_Bluetooth_PasscodeTxt;
 /*Pos_Bluetooth_PasscodeValue portion*/
 static const CooGUI_tds Pos_Bluetooth_PasscodeValue_Normal = {160,140,85,140,150,60,235,200};
-static const CooGUI_tds Pos_Bluetooth_PasscodeValue_Flipped = {160,164,85,140,150,60,235,200};
+static const CooGUI_tds Pos_Bluetooth_PasscodeValue_Flipped = {160,140,85,140,150,60,235,200};
 const CooGUI_tds* Pos_Bluetooth_PasscodeValue;
 /*Pos_Bluetooth_DownLoadData_01 portion*/
 static const CooGUI_tds Pos_Bluetooth_DownLoadData_01_Normal = {160,115,0,115,320,32,320,147};
-static const CooGUI_tds Pos_Bluetooth_DownLoadData_01_Flipped = {160,139,0,115,320,32,320,147};
+static const CooGUI_tds Pos_Bluetooth_DownLoadData_01_Flipped = {160,115,0,115,320,32,320,147};
 const CooGUI_tds* Pos_Bluetooth_DownLoadData_01;
 /*Pos_Bluetooth_DownLoadData_02 portion*/
 static const CooGUI_tds Pos_Bluetooth_DownLoadData_02_Normal = {160,147,0,147,320,32,320,179};
-static const CooGUI_tds Pos_Bluetooth_DownLoadData_02_Flipped = {160,171,0,147,320,32,320,179};
+static const CooGUI_tds Pos_Bluetooth_DownLoadData_02_Flipped = {160,147,0,147,320,32,320,179};
 const CooGUI_tds* Pos_Bluetooth_DownLoadData_02;
 /*Pos_Slates_Tittle portion*/
 static const CooGUI_tds Pos_Slates_Tittle_Normal = {180,0,180,0,140,23,320,23};
@@ -854,19 +854,19 @@ static const CooGUI_tds Pos_GasSwitch_BottomLine_2_Flipped = {160,234,32,215,220
 const CooGUI_tds* Pos_GasSwitch_BottomLine_2;
 /*Pos_ErrorMsg_Line_0 portion*/
 static const CooGUI_tds Pos_ErrorMsg_Line_0_Normal = {160,65,0,70,320,38,320,108};
-static const CooGUI_tds Pos_ErrorMsg_Line_0_Flipped = {160,89,0,70,320,38,320,108};
+static const CooGUI_tds Pos_ErrorMsg_Line_0_Flipped = {160,65,0,70,320,38,320,108};
 const CooGUI_tds* Pos_ErrorMsg_Line_0;
 /*Pos_ErrorMsg_Line_1 portion*/
 static const CooGUI_tds Pos_ErrorMsg_Line_1_Normal = {160,103,0,108,320,38,320,146};
-static const CooGUI_tds Pos_ErrorMsg_Line_1_Flipped = {160,127,0,108,320,38,320,146};
+static const CooGUI_tds Pos_ErrorMsg_Line_1_Flipped = {160,103,0,108,320,38,320,146};
 const CooGUI_tds* Pos_ErrorMsg_Line_1;
 /*Pos_ErrorMsg_Line_2 portion*/
 static const CooGUI_tds Pos_ErrorMsg_Line_2_Normal = {160,141,0,146,320,38,320,184};
-static const CooGUI_tds Pos_ErrorMsg_Line_2_Flipped = {160,165,0,146,320,38,320,184};
+static const CooGUI_tds Pos_ErrorMsg_Line_2_Flipped = {160,141,0,146,320,38,320,184};
 const CooGUI_tds* Pos_ErrorMsg_Line_2;
 /*Pos_ErrorMsg_Line_3 portion*/
 static const CooGUI_tds Pos_ErrorMsg_Line_3_Normal = {160,179,0,184,320,38,320,222};
-static const CooGUI_tds Pos_ErrorMsg_Line_3_Flipped = {160,203,0,184,320,38,320,222};
+static const CooGUI_tds Pos_ErrorMsg_Line_3_Flipped = {160,179,0,184,320,38,320,222};
 const CooGUI_tds* Pos_ErrorMsg_Line_3;
 /*Point_BottomIcon_0 coordination*/
 static const GUI_POINT Point_BottomIcon_0_Normal= {16,229};
