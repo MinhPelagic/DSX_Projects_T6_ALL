@@ -14,10 +14,10 @@
     <StLinkDriver>
         <stlinkserialNo>21442387</stlinkserialNo>
         <stlinkfoundProbes />
-        <CStepIntDis>_ 0</CStepIntDis>
-        <LeaveTargetRunning>_ 0</LeaveTargetRunning>
         <stlinkResetStyle>0</stlinkResetStyle>
         <stlinkResetStrategy>2</stlinkResetStrategy>
+        <CStepIntDis>_ 0</CStepIntDis>
+        <LeaveTargetRunning>_ 0</LeaveTargetRunning>
     </StLinkDriver>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -281,15 +281,6 @@
         <ShowTimeSum>1</ShowTimeSum>
         <SumSortOrder>0</SumSortOrder>
     </EventLog>
-    <DisassembleMode>
-        <mode>0</mode>
-    </DisassembleMode>
-    <Breakpoints2>
-        <Bp0>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\UserInterface\GUI\OpcodeHandle\Menu\Dive Main Menu\Mode_DiveMainMenu_Cfg.c}.52.1" 0 0 1 "" 0 "" 0</Bp0>
-        <Bp1>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\UserInterface\GUI\OpcodeHandle\Surface Mode\SurfaceHandle_3rdRowLeftRight.c}.35.9" 0 0 1 "" 0 "" 0</Bp1>
-        <Bp2>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\UserInterface\GUI\OpcodeHandle\Surface Mode\SurfaceHandle_3rdRowLeftRight.c}.42.9" 0 0 1 "" 0 "" 0</Bp2>
-        <Count>3</Count>
-    </Breakpoints2>
     <TermIOLog>
         <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ ""</LogFile>
@@ -299,6 +290,15 @@
         <LogFile>_ ""</LogFile>
         <Category>_ 0</Category>
     </LogFile>
+    <DisassembleMode>
+        <mode>0</mode>
+    </DisassembleMode>
+    <Breakpoints2>
+        <Bp0>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\UserInterface\GUI\OpcodeHandle\Menu\Dive Main Menu\Mode_DiveMainMenu_Cfg.c}.52.1" 0 0 1 "" 0 "" 0</Bp0>
+        <Bp1>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\UserInterface\GUI\OpcodeHandle\Surface Mode\SurfaceHandle_3rdRowLeftRight.c}.35.9" 0 0 1 "" 0 "" 0</Bp1>
+        <Bp2>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\UserInterface\GUI\OpcodeHandle\Surface Mode\SurfaceHandle_3rdRowLeftRight.c}.42.9" 0 0 1 "" 0 "" 0</Bp2>
+        <Count>3</Count>
+    </Breakpoints2>
     <Aliases>
         <A0>_ "C:\PROJECTS\DSX_ALGO_TAG_R002\Libraries\Middleware\Ambiental\Ambiental.c" ""</A0>
         <A1>_ "C:\PROJECTS\DSX_ALGO_TAG_R002\Libraries\Middleware\O2Analyzer\O2.c" ""</A1>
